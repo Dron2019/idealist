@@ -1,0 +1,23 @@
+// @include font-face("Forum", "../fonts/Forum/Forum-Regular", 400);
+// @include font-face("Gilroy", "../fonts/gilroy/Gilroy-Light", 400);
+// @include font-face("Cormorant", "../fonts/cormorant/Cormorant-Regular", 400);
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Regular.ttf') format('truetype');
+    // font-weight: 500;
+    font-style: normal;
+}

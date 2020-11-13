@@ -1,0 +1,64 @@
+mixin testCard(link, src, title, descr)
+	a(href=link).card-item
+		img.card-item__img(src=src alt='foto-1' title="title-foto")
+		h2.card-item__title=title
+		p.card-item__descr=descr
+
+mixin icon(icon, condition)
+	if(condition)
+		svg(class= icon  )&attributes(attributes)
+			use(xlink:href="#"+ icon + "")
+	else
+		span(class='svg-wrap')&attributes(attributes)
+			svg(class="svg-icon icon--"+ icon + ""  )
+				use(xlink:href="#"+ icon + "")
+mixin svg(icon)
+		svg(class="icon--"+ icon + ""  )&attributes(attributes)
+			use(xlink:href="#icon-"+ icon + "")
+
+mixin link-blank(href)
+	a(herf=href rel="nofollow" target="_blank")
+mixin img(src)
+	img(src='./assets/images/'+src+''  alt="foto")&attributes(attributes)
+mixin lazyImg(src)
+	img(data-src='./assets/images/'+src+'' alt="foto")&attributes(attributes)
+- var phoneNumber = `+38 (096) 165-30-30 `;
+- var phoneNumberHref = phoneNumber.replace(/\D/g,'');
+
+
+mixin SelectBox(name, options)
+	.select-box
+		.select-box__current(tabindex="1")
+			each option, index in options
+				if (index == 0)
+					.select-box__value
+					input.select-box__input(type="radio" id=index value=option.value name=name checked)
+				else 
+					.select-box__value
+					input.select-box__input(type="radio" id=index value=option.value name=name )
+				label.select-box__input-text(for=name) #{option.name}
+			img.select-box__icon(src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true")
+		ul.select-box__list
+			each option, index in options
+				li
+					label.select-box__option(for=index aria-hidden) #{option.name}
+
+
+
+mixin button-std(text,size,svgName)
+	-
+		if(size===undefined) size = '';
+	div(class="button-std "+size)
+		if svgName
+			+svg(svgName)
+		span #{text}
+
+		
+mixin breadcrumbs(array,textArray)
+	.breadcrumbs-block
+		each val,index in array
+			if (index+1) != array.length
+				a(href=val).breadcrumbs-block__item 
+					span #{textArray[index]}
+			else
+				a(href=val).breadcrumbs-block__item.breadcrumbs-block__item-current #{textArray[index]}

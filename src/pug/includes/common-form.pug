@@ -1,0 +1,40 @@
+form.common-form.common-form-js(data-name="contact-form")
+    legend Обратный звонок: 
+    <svg class="mfp-close" width="48" height="48" viewBox="12 12 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.6688 35.6688C11.5505 35.5505 11.484 35.39 11.484 35.2227C11.484 35.0554 11.5505 34.895 11.6688 34.7767L22.6818 23.7636L11.9052 12.987C11.7868 12.8687 11.7204 12.7083 11.7204 12.541C11.7204 12.3737 11.7868 12.2132 11.9052 12.0948C12.0235 11.9765 12.184 11.9101 12.3513 11.9101C12.5186 11.9101 12.679 11.9765 12.7973 12.0948L23.5739 22.8715L34.306 12.1394C34.4243 12.0211 34.5847 11.9547 34.752 11.9547C34.9193 11.9547 35.0798 12.0211 35.1981 12.1394C35.3164 12.2577 35.3829 12.4182 35.3829 12.5856C35.3829 12.7529 35.3164 12.9132 35.1981 13.0316L24.466 23.7636L35.4345 34.7321C35.5528 34.8504 35.6193 35.0108 35.6193 35.1781C35.6193 35.3454 35.5528 35.5059 35.4345 35.6242C35.3162 35.7425 35.1557 35.809 34.9884 35.809C34.8211 35.809 34.6607 35.7425 34.5424 35.6242L23.5739 24.6557L12.5609 35.6688C12.4426 35.7871 12.2821 35.8536 12.1148 35.8536C11.9475 35.8536 11.7871 35.7871 11.6688 35.6688Z" fill="url(#paint0_linearsizes-popup)"/>
+        <defs>
+        <linearGradient id="paint0_linearsizes-popup" x1="23.5293" y1="0.470647"  x2="0.075159" y2="25.8793" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FAA6A6"/>
+        <stop offset="1" stop-color="#F8CEBC"/>
+        </linearGradient>
+        </defs>
+        </svg>
+    .input-group
+        +svg('man')
+        .input-group__icon
+        input(autocomplete="off" data-error_mes="Введите имя" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
+    .input-group
+        +svg('tel-tube-rose')
+        .input-group__icon
+        input(autocomplete="off" data-error_mes="Введите номер телефона" name="tel" inputmode="tel" data-required="true" type="text" data-pattern="" placeholder="Телефон:*")
+    .input-group.textarea
+        +svg('dialog')
+        .input-group__icon
+        textarea(autocomplete="off" name="message"  type="text" data-pattern="" placeholder="Комментарий:")
+    .page__toggle.checkbox-group.input-group.for-filter.checkbox-first
+        label.toggle
+            input.toggle__input(name="time" value="no" type='radio'  )
+            span.toggle__label
+                span.toggle__text.text Перезвонить сейчас
+    .page__toggle.checkbox-group.input-group.for-filter
+        label.toggle
+            input.toggle__input.time-radio-js(name="time" value="yes" type='radio')
+            span.toggle__label
+                span.toggle__text.text Укажите удобное время
+    .input-group.time-group-js
+        +svg('clock')
+        .input-group__icon
+        input(autocomplete="off" name="time-input"  type="text" data-pattern="" placeholder="В какое время вам перезвонить?")
+    .help-span * поля со звездочкой обязательны для заполнения
+    button.button-std.medium.green.green-light-icon.text-white.submit-js(type="submit")
+        span Отправить

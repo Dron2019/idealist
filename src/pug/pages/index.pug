@@ -1,0 +1,71 @@
+extends ../layout/main
+block variable
+	- var version = "ua";
+	
+block meta
+	title= 'ENVY-сеть бутиков эксклюзивной женской одежды'
+	meta(name='description', content='')
+block head
+		link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+	script(defer src='./assets/scripts/libs.js')
+	script(defer src='./assets/scripts/index.js')
+block content
+	section.main-screen
+		picture.main-screen__bg
+			source(srcset="./assets/images/index/ms-bg.jpg")
+			img(src="./assets/images/index/ms-bg.jpg")
+		.glitch.glitch--style-1
+			.glitch__img(style="background: url(./assets/images/index/ms-bg.jpg) no-repeat 50% 0;")
+			.glitch__img(style="background: url(./assets/images/index/ms-bg.jpg) no-repeat 50% 0;")
+			.glitch__img(style="background: url(./assets/images/index/ms-bg.jpg) no-repeat 50% 0;")
+			.glitch__img(style="background: url(./assets/images/index/ms-bg.jpg) no-repeat 50% 0;")
+		.main-screen__slider
+			.main-screen__slide
+				.main-screen__slide-number /01
+				.main-screen__title Премиальный комфорт
+				.text.white ЖК «Идеалист» - это место, где рождаются личные ценности и открываются перспективы. Это идеальный формат вашего жилья.
+				.main-screen__but Подробнее
+			.main-screen__slide
+				.main-screen__slide-number /01
+				.main-screen__title Премиальный комфорт
+				.text.white ЖК «Идеалист» - это место, где рождаются личные ценности и открываются перспективы. Это идеальный формат вашего жилья.
+				.main-screen__but Подробнее
+			.main-screen__slide
+				.main-screen__slide-number /01
+				.main-screen__title Премиальный комфорт
+				.text.white ЖК «Идеалист» - это место, где рождаются личные ценности и открываются перспективы. Это идеальный формат вашего жилья.
+				.main-screen__but Подробнее
+			.main-screen__slide
+				.main-screen__slide-number /01
+				.main-screen__title Премиальный комфорт
+				.text.white ЖК «Идеалист» - это место, где рождаются личные ценности и открываются перспективы. Это идеальный формат вашего жилья.
+				.main-screen__but Подробнее
+			.main-screen__slide
+				.main-screen__slide-number /01
+				.main-screen__title Премиальный комфорт
+				.text.white ЖК «Идеалист» - это место, где рождаются личные ценности и открываются перспективы. Это идеальный формат вашего жилья.
+				.main-screen__but Подробнее
+			.main-screen__slide
+				.main-screen__slide-number /01
+				.main-screen__title Премиальный комфорт
+				.text.white ЖК «Идеалист» - это место, где рождаются личные ценности и открываются перспективы. Это идеальный формат вашего жилья.
+				.main-screen__but Подробнее
+		.arrow
+			<svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M-5.24537e-07 0L9 6L0 12L-2.22651e-07 6.90633L-3.01885e-07 5.09367L-5.24537e-07 0Z" fill="#EB8271"/>
+			</svg>
+	section.scrolling-screen
+		.subtitle Расположения
+		.title Ритм твоего города
+		.delimiter.orange
+		.text 01/03
+		
+
+
+
+block footer
+block header
+
+
+
