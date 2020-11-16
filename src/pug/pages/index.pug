@@ -55,11 +55,134 @@ block content
 			<svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M-5.24537e-07 0L9 6L0 12L-2.22651e-07 6.90633L-3.01885e-07 5.09367L-5.24537e-07 0Z" fill="#EB8271"/>
 			</svg>
-	section.scrolling-screen
-		.subtitle Расположения
-		.title Ритм твоего города
-		.delimiter.orange
-		.text 01/03
+	section.scrolling-screen.js-scrolling-screen
+		.scrolling-screen__left.scroller-slide-fixed.js-scroller-slide-fixed
+			.subtitle Расположения
+			.title.js-scroller-title.scroller-slide-fixed__title Ритм твоего города
+			.delimiter.orange
+			.text.js-scroller-slides.scroller-slide-fixed__viewer
+				span.js-scroller-slides-current.scroller-slide-fixed__current 01 
+				span.js-scroller-slides-total.scroller-slide-fixed__all / 03
+		.scrolling-screen__right
+			.scrolling-screen-slide.js-scrolling-screen-slide 
+				img.scrolling-screen-slide__image(src="./assets/images/index/scroll-slide1.jpg")
+				.scrolling-screen-slide__text-block(style="margin-left: calc(100% / 7);")
+					
+					<svg class="scrolling-screen-slide__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+						<path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+						</svg>
+					.scrolling-screen-slide__title 5 мин до чего-то
+					.scrolling-screen-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
+					.scrolling-screen-slide__btn.button-std(data-before="Подробнее")
+			.scrolling-screen-slide.js-scrolling-screen-slide 
+				img.scrolling-screen-slide__image(src="./assets/images/index/scroll-slide2.jpg")
+				.scrolling-screen-slide__text-block(style="margin-left: calc(100% / 7 * 2);")
+					
+					<svg class="scrolling-screen-slide__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+						<path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+						</svg>
+					.scrolling-screen-slide__title 10 мин до чего-то
+					.scrolling-screen-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
+					.scrolling-screen-slide__btn.button-std(data-before="Подробнее")
+			.scrolling-screen-slide.js-scrolling-screen-slide 
+				img.scrolling-screen-slide__image(src="./assets/images/index/scroll-slide3.jpg")
+				.scrolling-screen-slide__text-block(style="margin-left: calc(100% / -7);")
+					
+					<svg class="scrolling-screen-slide__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+						<path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+						</svg>
+					.scrolling-screen-slide__title 15 мин до чего-то
+					.scrolling-screen-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
+					.scrolling-screen-slide__btn.button-std(data-before="Подробнее")
+	section.js-horisontal-scroll.horisontal-scroll-section
+		<svg class="scroll-element-js" width="1629" height="248" viewBox="0 0 1629 248" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M18.3738 247.236H68.9016V123.631H50.5278V0.0258789H0V123.631H18.3738V247.236Z" fill="#EB8271"/>
+			<path d="M1155.25 247.235V123.63H1136.88V0.0250244H1086.35V123.63H1104.72V247.235H1155.25Z" fill="#EB8271"/>
+			<path d="M772.324 123.63L718.247 0.0250244H697.367L643.081 123.63H661.455L607.169 247.235H661.455L675.235 215.081H776.291L790.071 247.235H844.358L790.28 123.63H772.324ZM692.983 173.532L712.609 123.63H694.236L707.598 90.0147L720.961 123.63H739.335L758.961 173.532H692.983Z" fill="#EB8271"/>
+			<path d="M1054.19 247.235V201.51H945.831V123.63H927.457V0.0250244H876.929V123.63H895.303V247.235H1054.19Z" fill="#EB8271"/>
+			<path d="M1359.24 123.63H1340.87C1332.1 117.366 1321.24 111.52 1308.29 105.883L1280.11 93.9814C1269.04 89.1792 1261.52 84.7945 1257.35 81.0363C1253.17 77.278 1251.09 72.4758 1251.09 66.4208C1251.09 59.113 1254.01 53.4756 1259.65 49.5085C1265.49 45.3327 1272.8 43.4536 1281.78 43.4536C1300.57 43.4536 1316.23 52.6405 1328.96 71.0142L1363.42 45.3327C1355.48 31.3436 1344.42 20.2776 1330.43 12.3435C1316.44 4.20056 1300.15 0.233521 1281.78 0.233521C1257.98 0.233521 1238.35 6.49729 1222.9 18.8161C1207.45 31.1348 1199.72 47.6295 1199.72 67.8823C1199.72 90.0144 1211.62 108.597 1235.43 123.839H1253.8C1260.9 128.432 1269.04 132.608 1278.02 136.575L1304.54 148.059C1317.06 153.696 1325.42 158.29 1329.59 162.048C1333.77 165.806 1336.06 171.026 1336.06 177.707C1336.06 185.85 1332.93 192.323 1326.67 197.125C1320.4 201.927 1311.84 204.224 1300.78 204.224C1277.81 204.224 1257.56 192.74 1240.02 169.564L1205.15 194.828C1214.96 211.323 1228.12 224.059 1244.61 233.455C1261.32 242.851 1279.9 247.653 1300.57 247.653C1325.83 247.653 1346.5 241.18 1362.79 228.026C1379.08 214.872 1387.22 197.543 1387.22 176.246C1387.22 160.378 1382.42 147.015 1372.6 136.366C1369.47 131.564 1364.88 127.597 1359.24 123.63Z" fill="#EB8271"/>
+			<path d="M436.376 145.136H521.354V123.63H502.981V102.125H418.002V45.7506H538.267V0.0250244H367.474V123.63H385.848V247.235H556.64V201.51H436.376V145.136Z" fill="#EB8271"/>
+			<path d="M316.739 122.795C317.156 86.4649 304.838 57.0251 279.365 33.8491C253.892 10.6731 221.529 -0.601653 182.068 0.0247256H101.056V123.63H119.43V247.235H200.441C239.486 247.653 271.64 236.169 297.53 212.367C323.003 188.773 335.739 159.334 335.321 123.63H316.948V122.795H316.739ZM260.365 180.004C245.123 194.411 225.079 201.51 200.024 201.51H169.958V123.63H151.584V45.7503H181.65C207.123 45.7503 227.376 52.6405 242.409 66.4208C257.442 80.2012 264.958 98.9925 264.958 123.004C264.958 123.212 264.958 123.421 264.958 123.839H283.332C282.914 147.015 275.398 165.806 260.365 180.004Z" fill="#EB8271"/>
+			<path d="M1629 45.7506V0.0250244H1420V45.7506H1499.13V123.63H1517.5V247.235H1568.03V123.63H1549.66V45.7506H1629Z" fill="#EB8271"/>
+			</svg>
+	section.infra-block
+		.infra-block-part.infra-block-park.bottom-align 
+			.infra-block-part__img.glitch.glitch--style-1
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-park.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-park.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-park.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-park.jpg) no-repeat 50% 0;")
+			.infra-block-part__text Парк
+
+		.infra-block-part.infra-block-lounge 
+			.infra-block-part__img.glitch.glitch--style-1
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lounge.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lounge.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lounge.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lounge.jpg) no-repeat 50% 0;")
+			.infra-block-part__text Лаунж
+
+		.infra-block-part.infra-block-leisure-zone 
+			.infra-block-part__img.glitch.glitch--style-1
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-leisure-zone.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-leisure-zone.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-leisure-zone.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-leisure-zone.jpg) no-repeat 50% 0;")
+			.infra-block-part__text Зоны отдыха
+
+		.infra-block-part.infra-block-parking.bottom-align 
+			.infra-block-part__img.glitch.glitch--style-1
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-parking.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-parking.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-parking.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-parking.jpg) no-repeat 50% 0;")
+			.infra-block-part__text Паркинг
+
+		.infra-block-part.infra-block-lobby 
+			.infra-block-part__img.glitch.glitch--style-1
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lobby.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lobby.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lobby.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-lobby.jpg) no-repeat 50% 0;")
+			.infra-block-part__text Лобби
+
+		.infra-block-part.infra-block-cafe.bottom-align 
+			.infra-block-part__img.glitch.glitch--style-1
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-cafe.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-cafe.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-cafe.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/index/imfra-item-cafe.jpg) no-repeat 50% 0;")
+			.infra-block-part__text Кафе
+		a.infra-block-map-link Открыть карту
+		.home-screen-description-block
+			.home-screen-description-block__subtitle.subtitle ПРО ІНФРАСТРУКТУРУ
+			.home-screen-description-block__title.title Ритм твоего города
+			
+			.home-screen-description-block__text-wrap
+				<svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+					<path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+					</svg>
+				.home-screen-description-block__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. Це може бути слайдер з фотографіями, відео
+	section.double-part-section
+		.double-part-section__text.home-screen-description-block
+			.home-screen-description-block__subtitle.subtitle Еще один заголовок
+			.home-screen-description-block__title.title Тур по комплексу
+			.home-screen-description-block__text-wrap
+				<svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+					<path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+					</svg>
+				.home-screen-description-block__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. Це може бути слайдер з фотографіями, відео
+				.scrolling-screen-slide__btn.button-std(data-before="Подробнее")
+		picture.double-part-section__img
+			img(src="./assets/images/index/last-section.jpg")
+
+
+
 		
 
 

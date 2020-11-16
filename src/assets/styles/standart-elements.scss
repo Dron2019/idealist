@@ -968,86 +968,35 @@ form.disabled {
 }
 
 .button-std {
-    font-size: 13px;
-    line-height: 1em;
-    background: linear-gradient(267.71deg, #FAA6A6 0%, #F8CEBC 100%);
-    padding: 0 13px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--black);
+    width: 160px;
+    height: 42px;
     cursor: pointer;
-    transition: .7s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.18em;
     position: relative;
-    &.unaviable {
-        pointer-events: none;
-        background: linear-gradient(267.71deg, rgb(181, 181, 181) 0%, rgb(245, 245, 245) 100%) !important;
-    }
-    &.btn {
-        border: none;
-        height: 36px;
-        color: var(--black);
-    }
-    & * {
+    text-transform: uppercase;
+    &:before {
+        content: attr(data-before);
         position: relative;
-        pointer-events: none;
         z-index: 1;
     }
-    &>svg {
-        margin-right: 15px;
-        transition: var(--transition);
-    }
-    & path {
-        fill: #f9b1ac;
-        transition: var(--transition);
-    }
-    &.medium {
-        height: 36px;
-    }
-    &.no-bg {
-        background: transparent;
-        border: 1px solid #F9F3F0;
-    }
-    &.no-bg:after {
+    &:after {
         content: '';
+        transition: .3s ease-in-out;
         position: absolute;
+        bottom: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(267.71deg, #FF8298 0%, #FFDEAC 100%);
-        opacity: 0;
+        background-color: var(--orange);
+        transform-origin: bottom;
+        transform: scaleY(0.5);
         z-index: 0;
-        transition: var(--transition);
-        left: 0;
-        top: 0;
     }
-    & span {
-        font-weight: 500;
-    }
-    &.medium {
-        max-width: 190px;
-        height: 36px;
-    }
-    .icon--tel-tube {
-        height: 14px;
-        width: 14px;
-        stroke: var(--black);
-        fill: none;
-        stroke-width: 0.3;
-    }
-    @include from(769px) {
-        &.no-bg:hover {
-            border-color: #fff;
-        }
-        &.no-bg:hover:after {
-            opacity: 1;
-        }
-        &:hover svg.will-change-color path {
-            stroke: var(--black);
-            fill: var(--black);
-        }
+    &:hover:after {
+        transform: scaleY(1);
     }
 }
 
