@@ -1128,6 +1128,7 @@
     flex-wrap: wrap;
     align-items: center;
     padding-left: var(--side-fields);
+    min-height: calc(100vh - var(--header-height));
     .button-std {
         margin-top: 55px;
     }

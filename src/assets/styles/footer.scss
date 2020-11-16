@@ -16,6 +16,18 @@
 }
 
 .footer {
+    &__contact-row {
+        &-value[href*='tel'] {
+            font-size: 18px;
+        }
+        &-value {
+            text-decoration: none;
+            color: var(--black);
+        }
+        &-title {
+            color: var(--orange);
+        }
+    }
     background: #F5F5F5;
     width: calc(100% + 90px + var(--side-fields));
     margin-left: -90px;
