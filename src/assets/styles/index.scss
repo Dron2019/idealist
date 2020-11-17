@@ -905,7 +905,8 @@
         @include size(7);
         margin-left: auto;
         .scrolling-screen-slide {
-            height: calc(100vh - var(--header-height));
+            // height: calc(100vh - var(--header-height));
+            height: 100vh;
             // border: 1px solid blue;
         }
     }
@@ -1000,6 +1001,10 @@
     background: var(--other-gray);
     .home-screen-description-block {
         grid-area: 1/9/5/12;
+    }
+    .video-play-button {
+        grid-area: 2/4/5/4;
+        justify-self: end;
     }
     @include from(575px) {
         display: grid;
@@ -1141,7 +1146,12 @@
     }
     &__img {
         @include size(7);
+        height: calc(100vh - var(--header-height));
         margin-left: auto;
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
     }
     @include to(575px) {
         padding-left: 0;

@@ -1,6 +1,36 @@
 include ../includes/mixins.pug
 block variable
 
+- 
+	var fb = 'https://facebook.com';
+	var insta = 'https://instagram.com';
+	var viber = 'https://viber.com';
+	var complexTel = '(067) 747-01-51';
+	var complexAdress = 'Киев, ул. Великолепная, 54 ';
+	var menu = [
+		[
+			['Философия проекта ','philosophy.html'],
+			['Удобства ','facilities.html'],
+			['Документы ','documents.html'],
+			['Галерея ','gallery.html'],
+			['Фильм о проекте ','video-about.html'],
+			['Расположение ','location.html'],
+			['Инфраструктура ','innfrastructure.html'],
+			['Новости ','news.html'],
+			['Ход строительства ','build-prrogress.html'],
+			['Застройщик','developer.html'],
+		],
+		[
+			['Квартиры','appartments.html'],
+			['Коммерческая недвижимость','commercial.html'],
+			['Подбор по параметрам','filter.html'],
+		],
+		[
+			['Т: (067) 747-0151 ','tel:0677470151'],
+			['Е: blabla@gmail.com ','mailto:blabla@gmail.com'],
+			['А: Киев, ул. Чудесная, 56','https://maps.google.com/?q=Киев, ул. Чудесная, 56'],
+		]
+		];
 doctype html
 html(lang="uk")
 	head

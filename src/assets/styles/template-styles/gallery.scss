@@ -1,0 +1,26 @@
+#gallery {
+    .arrow {
+        cursor: none;
+        pointer-events: none;
+        transition: transform .3s ease-out;
+    }
+    .arrow.left-side {
+        transform: rotate(0.5turn);
+    }
+}
+
+.gallery-slider {
+    position: relative;
+    img {
+        object-fit: cover;
+        object-position: center;
+        height: 100vh;
+    }
+    .slider-counter {
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+}

@@ -1,16 +1,64 @@
 .footer
-	.footer-main
-		+svg('logo').footer__logo
-		.footer__contact-row
-			.footer__contact-row-title Телефон ЖК
-			a(href="tel:0677987867").footer__contact-row-value (067) 798-78-67
-		.footer__contact-row
-			.footer__contact-row-title Застройщик
-			a( target='_blank' href="https://comfort-life.com.ua").footer__contact-row-value comfort-life.com.ua
-
+	.footer__main
+		.footer__main-left
+			a(href="index.html")
+				+svg('logo').footer__logo
+			.footer__contact-row
+				.footer__contact-row-title Телефон ЖК:&nbsp 
+				a(href="tel:0677987867").footer__contact-row-value (067) 798-78-67
+			.footer__contact-row
+				.footer__contact-row-title Застройщик:&nbsp 
+				a( target='_blank' href="https://comfort-life.com.ua").footer__contact-row-value.underline comfort-life.com.ua
+		.footer__main-right
+			.footer__links-group.footer__links-group_double
+				.footer__column-title КОМПЛЕКС
+				ul.double-column
+					each val in menu[0]
+						li 
+							a(href=val[1]).footer__link #{val[0]}
+			.footer__links-group
+				.footer__column-title ПОДОБРАТЬ
+				ul
+					each val in menu[1]
+						li 
+							a(href=val[1]).footer__link #{val[0]}
+			.footer__links-group
+				.footer__column-title КОНТАКТЫ
+				ul
+					each val in menu[2]
+						li 
+							a(href=val[1] target='_blank').footer__link #{val[0]}
+			.footer__social-group
+				a(target='_blank' href=fb).social-link
+					+svg('facebook')
+				a(target='_blank' href=viber).social-link
+					+svg('viber')
+				a(target='_blank' href=insta).social-link
+					+svg('instagram')
 	.footer-bottom
 		span.all-rights-phrase © 2020 IDEALIST club residence. Все права защищены. 
-		.footer-bottom__text-block
-		a(target='_blank' href="https://smarto.agency").web-developer-block
-			span Розробка сайту
-			img(src="./assets/images/common/smarto-logo.svg")
+		a(target='_blank' href="https://smarto.agency").web-developer-block Разработка &nbsp<span class="underline"> smarto.agency</span>
+		<svg class="scroll-to-top" onclick="window.scrollTo({top: 0,left: 0,behavior: 'smooth'});" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="16" cy="16" r="16" fill="#EB8271"/>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5286 18L16.0286 13L19.5286 18L16.5573 18L15.4999 18L12.5286 18Z" fill="white"/>
+			</svg>
+.fixed-footer
+	a(href="tel:0931234444").fixed-footer__tel 
+		<svg class="fixed-footer__tel-icon " width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<circle opacity="0.25" cx="16" cy="16" r="16" fill="#EB8271"/>
+			<circle opacity="0.5" cx="16" cy="16" r="13" fill="#EB8271"/>
+			<circle cx="16" cy="16" r="10" fill="#EB8271"/>
+			<path d="M20.8611 19.3153L19.4512 20.7139C19.243 20.9274 18.9672 20.9997 18.6985 21C17.5104 20.9644 16.3874 20.3808 15.4654 19.7815C13.9518 18.6805 12.5631 17.3152 11.6915 15.6653C11.3573 14.9734 10.965 14.0906 11.0025 13.3184C11.0058 13.0279 11.0841 12.7428 11.2887 12.5555L12.6986 11.1464C12.9914 10.8973 13.2745 10.9834 13.4618 11.2735L14.5961 13.4244C14.7155 13.6792 14.647 13.9522 14.4689 14.1343L13.9494 14.6534C13.9174 14.6974 13.897 14.7474 13.8964 14.8018C14.0956 15.5728 14.6991 16.2834 15.2321 16.7725C15.7652 17.2616 16.3382 17.9241 17.0819 18.081C17.1739 18.1066 17.2865 18.1156 17.3522 18.0545L17.9565 17.44C18.1648 17.2821 18.4655 17.2049 18.6879 17.334H18.6985L20.7444 18.5419C21.0448 18.7302 21.0761 19.094 20.8611 19.3153Z" fill="white"/>
+			</svg>
+		span.fixed-footer__tel-text 0931234444
+	.fixed-footer__scroll
+		.fixed-footer__scroll-text.underline Ифраструктура
+		<svg class="fixed-footer__scroll-icon" width="15" height="34" viewBox="0 0 15 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M10.8101 29L7.5 33.489L4.18994 29H7H8H10.8101Z" />
+			<path class="scroll-anim" d="M7.20596 7.79191C7.33757 7.92353 7.51597 7.99759 7.7021 7.99787V8C7.88843 7.99888 8.06679 7.92418 8.1983 7.79217C8.32981 7.66017 8.40378 7.48155 8.4042 7.29521V4.70213C8.4042 4.51592 8.33024 4.33733 8.19856 4.20565C8.06689 4.07398 7.88831 4 7.7021 4C7.51588 4 7.33731 4.07398 7.20564 4.20565C7.07396 4.33733 7 4.51592 7 4.70213V7.29574C7.00028 7.48187 7.07435 7.6603 7.20596 7.79191Z" />
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 22C5.51088 21.9983 3.60381 21.253 2.19759 19.9277C0.791361 18.6025 0.000967262 16.8056 0 14.9318V7.06521C0 5.1914 0.79017 3.39433 2.19669 2.06935C3.60322 0.744362 5.51088 0 7.5 0C9.48912 0 11.3968 0.744362 12.8033 2.06935C14.2098 3.39433 15 5.1914 15 7.06521V14.9318C14.999 16.8056 14.2086 18.6025 12.8024 19.9277C11.3962 21.253 9.48911 21.9983 7.5 22ZM14.0031 7.06521C14.0031 5.44046 13.318 3.88226 12.0984 2.73338C10.8788 1.58451 9.22474 0.939081 7.5 0.939081C5.77526 0.939081 4.12117 1.58451 2.90159 2.73338C1.68202 3.88226 0.996887 5.44046 0.996887 7.06521V14.9318C0.996887 16.5566 1.68202 18.1148 2.90159 19.2637C4.12117 20.4126 5.77526 21.058 7.5 21.058C9.22474 21.058 10.8788 20.4126 12.0984 19.2637C13.318 18.1148 14.0031 16.5566 14.0031 14.9318V7.06521Z" />
+			</svg>
+
+
+
+

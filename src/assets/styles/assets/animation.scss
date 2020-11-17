@@ -443,3 +443,14 @@
     animation-duration: 5s;
     animation-iteration-count: infinite;
 }
+
+@keyframes scroll {
+    0%,
+    20% {
+        transform: translateY(0) scaleY(1);
+    }
+    100% {
+        transform: translateY(36px) scaleY(2);
+        opacity: 0;
+    }
+}

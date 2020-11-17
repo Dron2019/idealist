@@ -9,6 +9,7 @@ block head
 		link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
 	script(defer src='./assets/scripts/libs.js')
+	script(defer src="./assets/scripts/menu.js")
 	script(defer src='./assets/scripts/index.js')
 block content
 	section.main-screen
@@ -109,6 +110,8 @@ block content
 			<path d="M1629 45.7506V0.0250244H1420V45.7506H1499.13V123.63H1517.5V247.235H1568.03V123.63H1549.66V45.7506H1629Z" fill="#EB8271"/>
 			</svg>
 	section.infra-block
+		.video-play-button
+			+svg('cinema')
 		.infra-block-part.infra-block-park.bottom-align 
 			.infra-block-part__img.glitch.glitch--style-1
 				.glitch__img(style="background: url(./assets/images/index/imfra-item-park.jpg) no-repeat 50% 0;")

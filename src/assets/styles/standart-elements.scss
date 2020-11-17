@@ -1221,118 +1221,6 @@ form.disabled {
     }
 }
 
-.icon--tel-tube-rose {
-    width: 14px;
-    height: 14px;
-}
-
-.icon--marker {
-    width: 10px;
-    height: 14px;
-}
-
-.icon--clock {
-    width: 14px;
-    height: 14px;
-}
-
-.icon--dialog {
-    width: 15px;
-    height: 14px;
-}
-
-.icon--man {
-    width: 12px;
-    height: 16px;
-}
-
-.icon--lock {
-    width: 11px;
-    height: 16px;
-}
-
-.icon--lock-locked {
-    width: 11px;
-    height: 18px;
-}
-
-.icon--box {
-    width: 36px;
-    height: 30px;
-}
-
-.icon--clocks {
-    width: 30px;
-    height: 30px;
-}
-
-.icon--cash {
-    height: 19.78px;
-    width: 33.31px;
-}
-
-.icon--bucket-black {
-    height: 21px;
-    width: 14px;
-}
-
-.icon--tel-tube {
-    width: 14px;
-    height: 14px;
-}
-
-.icon--facebook {
-    fill: transparent;
-    stroke: var(--black);
-    width: 10px;
-    height: 17px;
-    .icon-hover {
-        transition: .5s ease-out;
-        opacity: 0;
-    }
-    @include from(769px) {
-        &:hover .icon-hover {
-            opacity: 1;
-        }
-    }
-}
-
-.icon--instagram {
-    fill: transparent;
-    stroke: var(--black);
-    width: 17px;
-    height: 17px;
-    .icon-hover {
-        transition: .5s ease-out;
-        opacity: 0;
-    }
-    @include from(769px) {
-        &:hover .icon-hover {
-            opacity: 1;
-        }
-    }
-}
-
-.icon--header-woman {
-    width: 13px;
-    height: 16px;
-}
-
-.icon--heart {
-    width: 18px;
-    height: 16px;
-}
-
-.icon--entry {
-    width: 18px;
-    height: 16px;
-}
-
-.icon--bucket {
-    width: 14px;
-    height: 21px;
-}
-
 
 /*ranges customizing*/
 
@@ -1406,103 +1294,101 @@ form.disabled {
     }
 }
 
-.search-res {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: calc(100% + 1em);
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    z-index: 5;
+.social-link {
+    --self-side: 30px;
+    width: var(--self-side);
+    height: var(--self-side);
+    border-radius: 50%;
+    cursor: pointer;
     background-color: var(--white);
-    --image-param: 30px;
-    justify-content: space-between;
-    &__item {
-        margin: 0.5em auto;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--black);
-        font-size: 0.8rem;
-        border-bottom: 1px solid #F9F3F0;
-        @include size(4);
-        @include shift(0);
-        padding-bottom: 10px;
-        margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        transform-origin: center;
+        transform-box: fill-box;
         transition: .3s ease-out;
-        img {
-            width: var(--image-param);
-            height: var(--image-param);
-            object-fit: cover;
-            margin-right: 10px;
-        }
-        .text {
-            width: 80%;
-            font-weight: 50;
-        }
-        .icon--arrow {
-            width: 14px;
-            height: 14px;
-        }
-    }
-    &__item:last-child {
-        margin-top: 1em;
-    }
-    &.large {
-        --image-param: 100px;
+        max-width: calc(var(--self-side) * 0.5);
+        max-height: calc(var(--self-side) * 0.5);
     }
     @include from(769px) {
-        &__item:not(:last-child):hover:after {
-            content: '';
-            display: inline-block;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.9796 0.669024C9.83102 0.505537 9.84311 0.25256 10.0066 0.103984C10.1701 -0.044593 10.4231 -0.0325056 10.5716 0.130981L14.7599 4.73957L15.0044 5.00859L14.7599 5.27761L10.5716 9.8862C10.4231 10.0497 10.1701 10.0618 10.0066 9.9132C9.84311 9.76462 9.83102 9.51164 9.9796 9.34816L13.5241 5.44795H1.38311C1.16219 5.44795 0.983105 5.26887 0.983105 5.04795C0.983105 4.82704 1.16219 4.64795 1.38311 4.64795H13.5956L9.9796 0.669024Z' fill='%23222222'/%3E%3C/svg%3E%0A");
-            width: 16px;
-            height: 11px;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-        &__item:hover {
-            color: var(--pink);
-            border-color: var(--pink);
+        &:hover svg {
+            transform: scale(1.2);
         }
     }
-    a.search-res__item {
-        order: 1;
+}
+
+.video-play-button {
+    background-color: var(--orange);
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+        width: 35%;
+        height: 35%;
+    }
+}
+
+.slider-counter {
+    --self-color: var(--white);
+    color: var(--self-color);
+    display: flex;
+    align-items: center;
+    &__arrow {
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.04em;
+    }
+    &__delimiter {
+        height: 1px;
+        width: 62px;
+        background-color: var(--self-color);
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+}
+
+.watch-more {
+    @include row-flex();
+    padding-left: var(--side-fields);
+    padding-right: var(--side-fields);
+    padding-bottom: 110px;
+    padding-top: 57px;
+    --glitch-width: 100%;
+    --glitch-height: 100%;
+    .glitch {
+        width: 100%;
+        height: 100%;
+    }
+    &__title {
+        position: relative;
+        z-index: 1;
+    }
+    &__block {
         @include size(6);
+        @include shift(0);
+        height: 270px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        color: var(--white);
+        text-decoration: none;
+        @include fontSizeLhToEm(24, 36);
     }
-    a.search-res__item[data-src="#"] {
-        order: 0;
-        @include size(4);
+    &__head-title {
+        @include shift-left(1);
+        width: 100%;
+        margin-bottom: 52px;
+        color: var(--blue);
+        @include fontSizeLhToEm(30, 38);
     }
-    @include to(996px) {
-        &__item {
-            @include size(6);
-        }
-    }
-    @include to(575px) {
-        &__item {
+    @include to(768px) {
+        &__block {
             @include size(12);
         }
-        top: 100%;
     }
-}
-
-.search-page {
-    @include to(575px) {
-        .button-std[type=submit] {
-            margin-left: 0;
-            margin-top: 0.5em;
-        }
-    }
-}
-
-.search-input:focus-within .sm-search-result {
-    .search-res__item {
-        width: 100%;
-    }
-}
-
-.c-scrollbar {
-    z-index: 50;
 }

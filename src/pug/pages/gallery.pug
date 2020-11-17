@@ -1,0 +1,64 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "gallery";
+block meta
+    title= ' '
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/gallery.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    .gallery-slider.js-gallery-slider
+        <div class="arrow" data-side="leftSide">
+            <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-5.24537e-07 0L9 6L0 12L-2.22651e-07 6.90633L-3.01885e-07 5.09367L-5.24537e-07 0Z" fill="#EB8271"></path>
+            </svg>
+        </div>
+        .slider-counter.js-gallery-slider-counter
+            .slider-counter__arrow.slider-counter__arrow-current.current 01
+            .slider-counter__delimiter 
+            .slider-counter__arrow.slider-counter__arrow-total.total 24
+        .gallery-slide(data-lazy="./assets/images/gallery/1_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/1_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/2_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/2_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/3_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/3_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/4_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/4_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/5_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/5_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/6_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/6_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/7_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/7_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/8_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/8_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/9_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/9_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/10_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/10_gallery.jpg")
+        .gallery-slide(data-lazy="./assets/images/gallery/11_gallery.jpg")
+            img(data-lazy="./assets/images/gallery/11_gallery.jpg")
+    .watch-more
+        .watch-more__head-title  Хотите узнать больше?
+        a.watch-more__block(href="developer.html" )
+            .watch-more__title Застройщик
+            .glitch.glitch--style-1
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+        a.watch-more__block(href="gallery.html" )
+            .watch-more__title Галерея
+            .glitch.glitch--style-4
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+block footer
+block header

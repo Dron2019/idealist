@@ -42,6 +42,38 @@ header.header
                 <path d="M14.0001 13L24.6067 23.6066" stroke="white"/>
                 <path d="M24.6066 13L14 23.6066" stroke="white"/>
             </g>
-           
         </svg>
+    .top-menu.js-top-menu 
+        picture.top-menu__left
+            img(src="./assets/images/menu-render.jpg")
+        .top-menu__right
+            .top-menu__group.double
+                .top-menu__subtitle Комплекс
+                ul
+                    each val in menu[0]
+                        li 
+                            a(href=val[1]).top-menu__link #{val[0]}
+            .top-menu__group
+                .top-menu__subtitle Подобрать
+                ul
+                    each val in menu[1]
+                        li 
+                            a(href=val[1]).top-menu__link #{val[0]}
+            .top-menu__group
+                .top-menu__subtitle Контакты
+                ul
+                    each val in menu[2]
+                        li 
+                            a(href=val[1]).top-menu__link #{val[0]}
+            .delimiter
+            .top-menu__group
+                a(href="tel:"+complexTel).top-menu__bottom-tel #{complexTel}
+                button.top-menu__form-call Заказать звонок
+            .top-menu__group
+                a(href="https://maps.google.com/?q="+complexAdress).top-menu__bottom-link #{complexAdress}
+                a(href=fb target='_blank').top-menu__social
+                    +svg('facebook')
+                a(href=insta target='_blank').top-menu__social
+                    +svg('instagram')
+
 

@@ -5,49 +5,11 @@
 @@include('../../../../node_modules/typed.js/lib/typed.min.js')
 /* beautify preserve:end */
 
-// document.querySelector("header").style.border = "1px solid yellow"
-const SCREEN_WIDTH = window.screen.width;
-let menuCall = document.querySelector(".js-menu-call");
 
-function headerMenuButtonAnimate(event) {
-    let bigLineWidth = this.querySelector("line").x2.baseVal.value;
-    let lineToAnim = this.querySelectorAll("line")[1];
-    lineToAnim.x2 = bigLineWidth;
-    if (event.type === "mouseleave") {
-        gsap.to(lineToAnim, { attr: { x2: lineToAnim.dataset.base_value } })
-    } else if (event.type === "mouseenter") {
-        lineToAnim.dataset.base_value = lineToAnim.x2.baseVal.value;
-        gsap.to(lineToAnim, { attr: { x2: bigLineWidth } })
-    } else if (event.type === "click") {
-        this.classList.toggle("opened");
-    }
-}
 
-const observerConfig = {
-    attributes: true,
-    childList: true,
-    subtree: true
-};
 
-function switchMenuButtonState(mutationsList, observer) {
-    mutationsList.forEach((mutation) => {
-        if (mutation.target.tagName === "BUTTON") {
-            var button = mutation.target;
-            if (mutation.target.classList.contains("opened")) {
-                button.querySelector(".header__menu-button-text").textContent = mutation.target.dataset.text2;
-            } else {
-                button.querySelector(".header__menu-button-text").textContent = mutation.target.dataset.text1;
 
-            }
-        }
-    })
 
-}
-let menuCallObserver = new MutationObserver(switchMenuButtonState);
-menuCallObserver.observe(menuCall, observerConfig);
-menuCall.addEventListener("click", headerMenuButtonAnimate);
-menuCall.addEventListener("mouseenter", headerMenuButtonAnimate);
-menuCall.addEventListener("mouseleave", headerMenuButtonAnimate);
 
 const mediumCordValue = document.documentElement.clientWidth / 2;
 const headBlockYCordValue = 100;
@@ -66,10 +28,10 @@ let msSlider = $(".main-screen__slider").slick({
     easing: 'ease-out',
 });
 
-$(".main-screen__slider").on('beforeChange', () => {
+msSlider.on('beforeChange', () => {
     handleMsGlitch('on');
 });
-$(".main-screen__slider").on('afterChange', () => {
+msSlider.on('afterChange', () => {
     handleMsGlitch('off');
     calcButtonPosition(arrow);
 });
