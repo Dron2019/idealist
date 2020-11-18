@@ -123,6 +123,11 @@
             @include shift-padding-right(1);
         }
     }
+    @include from(769px) {
+        &__link:hover {
+            color: var(--orange);
+        }
+    }
 }
 
 .footer-adress {

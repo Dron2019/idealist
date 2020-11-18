@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "git-push": "git push https://github.com/Dron2019/idealist.git master",
-        "get-file-names": "dir /b /s"
+        "get-file-names": "dir /b /s",
+        "gulp":"gulp"
     },
     "browserslist": [
         "last 3 version"
@@ -47,6 +48,7 @@
     },
     "dependencies": {
         "@johh/three-effectcomposer": "^0.1.0",
+        "cli": "^1.0.1",
         "gsap": "^3.5.1",
         "gulp-change": "^1.0.2",
         "gulp-cli": "^2.3.0",

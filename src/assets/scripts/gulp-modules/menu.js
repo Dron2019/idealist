@@ -4,7 +4,7 @@ const fixedFooter = document.querySelector('.fixed-footer');
 
 function fixedFooterTranslateOnPageBottom() {
     /**Процент прогреса скролла страницы, после которого идет слежка за футером */
-    const coef = 0.99;
+    const coef = 0.9;
     let isNearBottom = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight * coef;
     if (!isNearBottom) return;
     if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {

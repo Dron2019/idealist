@@ -1,0 +1,76 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "build-progress";
+block meta
+    title= ' Idealist ход строительства'
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/build-progress.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    .build-progress-view-screen.js-build-slider
+        <div class="arrow" data-side="leftSide">
+            <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-5.24537e-07 0L9 6L0 12L-2.22651e-07 6.90633L-3.01885e-07 5.09367L-5.24537e-07 0Z" fill="#EB8271"></path>
+            </svg>
+        </div>
+        .build-progress-nav-wrap
+            .custom-select
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="4.5" x2="4.5" y2="9" stroke="white"/>
+                    <line x1="0.0011118" y1="4.5" x2="9.00109" y2="4.52001" stroke="white"/>
+                    </svg>
+                .custom-select__items-wrapper
+                    .custom-select__item.custom-select__item-current(data-value="null") Год
+                    .custom-select__item(data-value="2020") 2020
+                    .custom-select__item(data-value="2019") 2019
+                    .custom-select__item(data-value="2021") 2021
+            .custom-select
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="4.5" x2="4.5" y2="9" stroke="white"/>
+                    <line x1="0.0011118" y1="4.5" x2="9.00109" y2="4.52001" stroke="white"/>
+                    </svg>
+                .custom-select__items-wrapper
+                    .custom-select__item.custom-select__item-current(data-value="null") Месяц
+                    .custom-select__item(data-value="2020") Январь
+                    .custom-select__item(data-value="2019") Февраль
+                    .custom-select__item(data-value="2021") Март
+                    .custom-select__item(data-value="2021") Апрель
+                    .custom-select__item(data-value="2021") Май
+                    .custom-select__item(data-value="2021") Июнь
+                    .custom-select__item(data-value="2021") Июль
+                    .custom-select__item(data-value="2021") Август
+                    .custom-select__item(data-value="2021") Сентябрь
+                    .custom-select__item(data-value="2021") Октябрь
+                    .custom-select__item(data-value="2021") Ноябрь
+                    .custom-select__item(data-value="2021") Декабрь
+            .slider-counter.js-gallery-slider-counter
+                .slider-counter__arrow.slider-counter__arrow-current.current 01
+                .slider-counter__delimiter 
+                .slider-counter__arrow.slider-counter__arrow-total.total 24
+        img(src="./assets/images/build-progrees-test.jpg")
+        img(src="./assets/images/build-progrees-test.jpg")
+    .page-title.white Ход строительства
+    .watch-more
+        .watch-more__head-title  Хотите узнать больше?
+        a.watch-more__block(href="developer.html" )
+            .watch-more__title Застройщик
+            .glitch.glitch--style-1
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+        a.watch-more__block(href="gallery.html" )
+            .watch-more__title Галерея
+            .glitch.glitch--style-4
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+
+block footer
+block header
