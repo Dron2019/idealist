@@ -1,0 +1,109 @@
+#news {
+    background-color: var(--gray);
+    .page__content {
+        padding-top: var(--header-height);
+        padding-left: var(--side-fields);
+        @include shift-padding-left(1);
+        padding-right: var(--side-fields);
+    }
+    .news-top-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .title {
+            width: max-content;
+            margin-right: 100px;
+        }
+        .custom-select {
+            margin-right: 50px;
+        }
+    }
+    .news-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        align-items: center;
+    }
+}
+
+.single-news-container,
+.news-list-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--header-height) - 58px - 50px - 75px);
+    width: 50%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    margin-bottom: 75px;
+}
+
+.single-news-container {
+    h2 {
+        font-size: 30px;
+        line-height: 38px;
+        color: var(--black);
+        padding-top: 38px;
+        padding-bottom: 29px;
+        margin-bottom: 38px;
+        position: relative;
+    }
+    h2:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30%;
+        height: 1px;
+        background-color: var(--orange);
+    }
+    p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    img:not(:first-child) {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}
+
+.news-list-container {
+    @include shift-padding-left(1);
+}
+
+.news-link {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid var(--white);
+    transition: border .3s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    .arrow {
+        transition: .3s ease-out;
+    }
+    &__date {
+        color: var(--other-gray);
+        font-size: 20px;
+        line-height: 1.6em;
+    }
+    &__title {
+        font-size: 20px;
+        line-height: 1.6em;
+        color: var(--black);
+    }
+    @include from(769px) {
+        &:hover .arrow {
+            background: var(--white);
+        }
+        &:hover {
+            border-bottom-color: var(--orange);
+        }
+        // &:hover~.doc {
+        //     border-top-color: var(--orange);
+        // }
+    }
+}

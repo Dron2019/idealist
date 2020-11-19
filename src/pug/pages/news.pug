@@ -1,0 +1,101 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "news";
+block meta
+    title= 'Idealist Документы'
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/news.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    .news-top-row
+        .title Новости
+        .custom-select.to-bottom(data-name="year")
+            <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="4.5" x2="4.5" y2="9" stroke="white"/>
+                <line x1="0.0011118" y1="4.5" x2="9.00109" y2="4.52001" stroke="white"/>
+                </svg>
+            .custom-select__items-wrapper
+                .custom-select__item.custom-select__item-current(data-value="null") Год
+                .custom-select__item(data-value="2020") 2020
+                .custom-select__item(data-value="2019") 2019
+                .custom-select__item(data-value="2021") 2021
+        .custom-select.to-bottom(data-name="month")
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="4.5" x2="4.5" y2="9" stroke="white"/>
+                    <line x1="0.0011118" y1="4.5" x2="9.00109" y2="4.52001" stroke="white"/>
+                    </svg>
+                .custom-select__items-wrapper
+                    .custom-select__item.custom-select__item-current(data-value="null") Месяц
+                    .custom-select__item(data-value="2020") Январь
+                    .custom-select__item(data-value="2019") Февраль
+                    .custom-select__item(data-value="2021") Март
+                    .custom-select__item(data-value="2021") Апрель
+                    .custom-select__item(data-value="2021") Май
+                    .custom-select__item(data-value="2021") Июнь
+                    .custom-select__item(data-value="2021") Июль
+                    .custom-select__item(data-value="2021") Август
+                    .custom-select__item(data-value="2021") Сентябрь
+                    .custom-select__item(data-value="2021") Октябрь
+                    .custom-select__item(data-value="2021") Ноябрь
+                    .custom-select__item(data-value="2021") Декабрь
+    .news-wrapper
+        .single-news-container#single-news-container
+            .parent     
+                img(src="./assets/images/build-progrees-test.jpg")
+                h2 На сайте Idealist произошли обновления
+                p Для того, чтобы использование встроенного механизированного паркинга в ЖК “Idealist” было ещё комфортнее, на въезде мы установили немецкие ворота Hörmann. Такие компоненты, как ворота, привод и блок управления, оптимально согласованы друг с другом и испытаны как единый функциональный блок. Встроенные функции плавного пуска и остановки привода обеспечивают бесшумное движение ворот и их бережную эксплуатацию. Ещё больше свежих фотографий ЖК “Idealist” вы можете увидеть на нашем сайте в разделе “Ход строительства”.
+                img(src="./assets/images/build-progrees-test.jpg")
+                img(src="./assets/images/build-progrees-test.jpg")
+        .news-list-container#news-list-container
+            .parent 
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+                .news-link
+                    .news-link__date 09.12.2020
+                    .news-link__title Ваш дом и здоровье. Как не болеть и жить комфортно в своём доме
+
+        
+block footer
+block header

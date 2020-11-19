@@ -30,7 +30,7 @@ function getSliderCounter(selector) {
 
 
 /**СТрелка переключатель в зависимости от положения на єкране */
-
+//func
 function sideSwitchArrow(jQuerySlider, arrow, container, dontShowArrowBlock) {
     let isShowing = true;
     const mediumCordValue = document.documentElement.clientWidth / 2;
@@ -177,12 +177,16 @@ function sideSwitchArrow(jQuerySlider, arrow, container, dontShowArrowBlock) {
         // })
     }
 }
+
+//func
+
+/**СТрелка переключатель в зависимости от положения на єкране END */
 sideSwitchArrow(
     buildSlider,
     document.querySelector(".arrow"),
     document.querySelector(".js-build-slider"),
     document.querySelector(".build-progress-nav-wrap"));
-/**СТрелка переключатель в зависимости от положения на єкране END */
+
 
 
 
