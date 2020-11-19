@@ -1,0 +1,38 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "contacts";
+block meta
+    title= 'Idealist Контакты'
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/contacts.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    .double-part-section
+        ul.double-part-section__text
+            li 
+                div.contact-subtitle Адрес офиса продаж
+                a.h4-title(href="https://maps.google.com/?q="+complexAdress target='_blank') #{complexAdress}
+            li 
+                div.contact-subtitle Адрес объекта
+                a.h4-title(href="https://maps.google.com/?q="+complexAdress target='_blank') #{complexAdress}
+            li 
+                div.contact-subtitle Телефон
+                a.h4-title(href="tel:"+complexTel) #{complexTel}
+            li
+                .delimiter
+            li 
+                a.contact-blank-link.form-call-js
+                    +svg('ring-tube')
+                    span заказать звонок
+                a.contact-blank-link(href="https://maps.google.com/?q="+complexAdress target='_blank')
+                    +svg('marker')
+                    span открыть карту
+        .double-part-section__img
+            #map 
+block footer
+block header

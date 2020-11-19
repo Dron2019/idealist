@@ -200,6 +200,7 @@
     justify-content: space-between;
     color: var(--self-color);
     transition: .3s ease-out;
+    pointer-events: none;
     &__tel {
         text-decoration: none;
         display: flex;
@@ -207,6 +208,7 @@
         font-weight: bold;
         @include fontSizeLhToEm(18, 24);
         color: var(--self-color);
+        pointer-events: all;
     }
     &__tel-text {
         color: var(--self-color);
@@ -215,6 +217,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        pointer-events: all;
     }
     &__scroll-icon {
         fill: var(--self-color);
