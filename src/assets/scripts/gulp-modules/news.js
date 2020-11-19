@@ -10,7 +10,8 @@ var newsConfig = {
 function changeCurrentValue(selector) {
     selector.currentValue = selector.querySelectorAll('.custom-select__item')[0].dataset.value;
     selector.querySelectorAll('.custom-select__item').forEach(select => {
-        select.addEventListener('click', () => {
+        select.addEventListener('click', (evt) => {
+            evt.stopImmediatePropagation();
             selector.querySelectorAll('.custom-select__item').forEach(el => el.classList.remove('custom-select__item-current'))
             select.classList.add('custom-select__item-current');
             selector.currentValue = select.dataset.value;
@@ -20,11 +21,26 @@ function changeCurrentValue(selector) {
     });
     selector.addEventListener('change', function(evt) {
         // console.log(evt);
+        evt.stopImmediatePropagation();
         newsConfig[evt.target.dataset.name] = evt.target.currentValue;
         // console.log(buildProgressConfig);
-        // fetch('static/val.php')
-        //     .then((response) => response.json())
-        //     .then((res => reInitSlider(buildSlider, res)))
+        fetch('static/news-app.php')
+            .then((response) => response.json())
+            .then((res => {
+                let newsListContainer = document.querySelector('.news-list-container .parent');
+                newsListContainer.innerHTML = '';
+                let fetchedList = '';
+                res.forEach(el => {
+                    console.log(el);
+                    fetchedList += `
+                        <div class="news-link">
+                            <div class="news-link__date">${el.date}</div>
+                            <div class="news-link__title">${el.text}</div>
+                        </div>
+                    `
+                });
+                newsListContainer.insertAdjacentHTML('beforeend', fetchedList);
+            }))
     });
 };
 

@@ -24,6 +24,11 @@
         margin-top: 50px;
         align-items: center;
     }
+    @include to(950px) {
+        .page__content {
+            padding-left: var(--side-fields);
+        }
+    }
 }
 
 .single-news-container,
@@ -64,6 +69,13 @@
     img:not(:first-child) {
         margin-top: 25px;
         margin-bottom: 25px;
+    }
+    a {
+        display: inline-block;
+        line-height: 1.6em;
+        margin-top: 0.8em;
+        margin-bottom: 0.8em;
+        color: var(--orange);
     }
 }
 
