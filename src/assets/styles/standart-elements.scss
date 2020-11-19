@@ -16,6 +16,10 @@
     align-items: center;
     justify-content: center;
     z-index: 2;
+    transition: .3 ease-out;
+    &.gray {
+        background: #E7E4E1;
+    }
     &>svg {
         transform: translateX(30%);
         width: 9px;

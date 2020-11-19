@@ -1,0 +1,114 @@
+#documents {
+    background-color: var(--gray);
+    padding-top: var(--header-height);
+    .page__content {
+        padding-left: var(--side-fields);
+        padding-right: var(--side-fields);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        min-height: 100vh;
+        @include shift-padding(2);
+        // @include shift(0);
+    }
+}
+
+.docs-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: calc(100vh - var(--header-height) - 58px - 50px);
+    // width: 580px;
+    overflow: auto;
+    position: relative;
+}
+
+.doc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    border-top: 1px solid var(--white);
+    transition: border .3s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    .arrow {
+        transition: .3s ease-out;
+    }
+    &__date {
+        color: var(--other-gray);
+        font-size: 20px;
+        line-height: 56px;
+    }
+    &__title {
+        font-size: 20px;
+        line-height: 56px;
+        color: var(--black);
+    }
+    @include from(769px) {
+        &:hover .arrow {
+            background: var(--white);
+        }
+        &:hover {
+            border-top-color: var(--orange);
+        }
+        // &:hover~.doc {
+        //     border-top-color: var(--orange);
+        // }
+    }
+}
+
+
+/*custom scrollbar*/
+
+.ssb_down {
+    background-color: transparent;
+    bottom: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    border-radius: 10px;
+}
+
+.ssb_sb {
+    background-color: var(--orange);
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    border-radius: 10px;
+}
+
+.ssb_sb_down {
+    background-color: var(--orange);
+}
+
+.ssb_sb_over {
+    background-color: var(--orange);
+}
+
+.ssb_st {
+    background-color: var(--gray);
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    // border-radius: 10px;
+}
+
+.ssb_up {
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.parent {
+    font-family: verdana;
+    height: 100%;
+    padding: 10px;
+    position: relative;
+}
