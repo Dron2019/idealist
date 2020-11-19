@@ -1,0 +1,14 @@
+.video-container {
+    width: 100vw;
+    height: calc(100vh + var(--header-height));
+    margin-top: calc(var(--header-height) - (var(--header-height) * 2));
+    position: relative;
+    overflow: hidden;
+    .arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: .7s ease-out;
+    }
+}

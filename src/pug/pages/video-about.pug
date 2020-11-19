@@ -1,0 +1,27 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "video-about";
+block meta
+    title= 'Idealist видео про проект '
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/video-about.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    .video-container
+        <div class="arrow" data-side="leftSide" onclick="videoAboutHandler()">
+            +svg('arrow').play
+            <svg class="pause" width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.7849 16H9.92773V0H14.7849V16Z" fill="#EB8271"/>
+                <path d="M5.07099 16H0.213867V0H5.07099V16Z" fill="#EB8271"/>
+                </svg>
+            .progress-indecator
+        </div>
+        video(poster="./assets/images/build-progrees-test.jpg")
+            source(src="./static/test-video.mp4")
+block footer
+block header

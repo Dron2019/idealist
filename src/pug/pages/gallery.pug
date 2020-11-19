@@ -13,11 +13,8 @@ block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block content
     .gallery-slider.js-gallery-slider
-        <div class="arrow" data-side="leftSide">
-            <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M-5.24537e-07 0L9 6L0 12L-2.22651e-07 6.90633L-3.01885e-07 5.09367L-5.24537e-07 0Z" fill="#EB8271"></path>
-            </svg>
-        </div>
+        .arrow(data-side="leftSide")
+            +svg('arrow')
         .slider-counter.js-gallery-slider-counter
             .slider-counter__arrow.slider-counter__arrow-current.current 01
             .slider-counter__delimiter 
