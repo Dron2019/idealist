@@ -1153,6 +1153,18 @@
             object-fit: cover;
         }
     }
+    &.symmetrical &__img,
+    &.symmetrical &__text {
+        @include size(6);
+    }
+    &.reverse {
+        padding-left: 0;
+        padding-right: var(--side-fields);
+    }
+    &.reverse &__img {
+        margin-left: 0;
+        margin-right: auto;
+    }
     @include to(575px) {
         padding-left: 0;
         &__img,
