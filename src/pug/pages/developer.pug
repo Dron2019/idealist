@@ -1,0 +1,81 @@
+extends ../layout/main
+block variable
+	- var version = "ua";
+	- var pageName = "developer";
+block meta
+	title= 'Idealist Застройщик'
+	meta(name='description', content='')
+block scripts
+	script(defer src="./assets/scripts/libs.js")
+	script(defer src="./assets/scripts/menu.js")
+	script(defer src="./assets/scripts/developer.js")
+block head
+	link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+	.double-part-section
+		.double-part-section__text.home-screen-description-block
+			.home-screen-description-block__subtitle.subtitle Застройщик
+			.home-screen-description-block__title.title Comfort Life
+			.home-screen-description-block__text-wrap
+				<svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+					<path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+					</svg>
+				.home-screen-description-block__text.text
+					p Comfort Life – надежная девелоперская компания, которая уже более 10 лет строит комфортные дома влучших локациях Киевской области. 
+					p Используя современные решения, качественные материалы и оригинальные проекты, компания не только оправдывает ожидания своих инвесторов, но и во многом превосходит их. 
+					p Выбрать комплекс от Comfort Life – значит получить комфорт апартаментов и наслаждаться продуманной, обустроенной территорией.
+		picture.double-part-section__img
+			img(src="./assets/images/index/last-section.jpg")
+	.other-project-wrapper
+		-
+			var others = [
+				['./assets/images/developers/projects/10_lesnaya-skazka2_1600h1200px.jpg','ЖК «Лесная сказка 2»'],
+				['./assets/images/developers/projects/11_klubniy-dom_1600h1200px.jpg','ЖК «Клубный дом»'],
+				['./assets/images/developers/projects/12_lesnaya-skazka1_1600h1200px.jpg','ЖК «Лесная сказка»'],
+				['./assets/images/developers/projects/13_britanika_1600h1200px.jpg','ЖК «Британика»'],
+				['./assets/images/developers/projects/14_irpenskie-lipki_1600h1200px.jpg','ЖК «Ирпенские Липки»'],
+				['./assets/images/developers/projects/15_parkoviy_1600h1200px.jpg','ЖК «Парковый»'],
+				['./assets/images/developers/projects/1_Riverside_1600h1200px.jpg','ЖК «Riverside»'],
+				['./assets/images/developers/projects/5_naykraschiy1_1600h1200px.jpg','«Найкращий квартал»'],
+				['./assets/images/developers/projects/6_proreznaya-2_1600h1200px.jpg','ЖК «На Прорезной 2»'],
+				['./assets/images/developers/projects/7_proreznaya-1_1600h1200px.jpg','ЖК «На Прорезной»'],
+				['./assets/images/developers/projects/8_Royal-Park_1600h1200px.jpg','ЖК «Royal Park»'],
+				['./assets/images/developers/projects/naykraschiy2.jpg ','«Найкращий квартал 2»'],
+				['./assets/images/developers/projects/Poltavskaya64.jpg','Дом на ул. Полтавской 64'],
+			];
+		.other-project-wrapper__left
+			each val,index in others
+				//- picture.other-project-slide__img.js-other-project-slide__img(data-title=val[1])
+				//- 		img(src=val[0])
+				.other-project-slide__img.js-other-project-slide__img(data-title=val[1])
+					.glitch.glitch--style-1
+						.glitch__img(style="background:url("+val[0]+") no-repeat 50% 0;")
+						.glitch__img(style="background:url("+val[0]+") no-repeat 50% 0;")
+						.glitch__img(style="background:url("+val[0]+") no-repeat 50% 0;")
+						.glitch__img(style="background:url("+val[0]+") no-repeat 50% 0;")
+		.other-project-wrapper__right.js-other-project-wrapper__right
+				.subtitle-small  другие объекты
+				.title ЖК
+				.delimiter.orange
+				.slider-counter-type2.js-other-projects-counter
+					.slider-counter-type2__current 1
+					.slider-counter-total 13
+	.watch-more
+		.watch-more__head-title  Хотите узнать больше?
+		a.watch-more__block(href="developer.html" )
+			.watch-more__title Застройщик
+			.glitch.glitch--style-1
+				.glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+		a.watch-more__block(href="gallery.html" )
+			.watch-more__title Галерея
+			.glitch.glitch--style-4
+				.glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+				.glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+block footer
+block header

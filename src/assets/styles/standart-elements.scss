@@ -46,6 +46,13 @@
     }
 }
 
+.subtitle-small {
+    @include fontSizeLhToEm(13, 23);
+    /* identical to box height, or 185% */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 .sale-personal-section-index-block {
     height: 3.2em !important;
     display: flex;
@@ -1374,6 +1381,23 @@ form.disabled {
         background-color: var(--self-color);
         margin-left: 18px;
         margin-right: 18px;
+    }
+}
+
+.slider-counter-type2 {
+    display: flex;
+    align-items: flex-start;
+    color: var(--black);
+    .slider-counter-type2__current {
+        font-size: 40px;
+        line-height: 38px;
+    }
+    .slider-counter-total {
+        font-size: 12px;
+        line-height: 24px;
+    }
+    .slider-counter-total:before {
+        content: ' /';
     }
 }
 

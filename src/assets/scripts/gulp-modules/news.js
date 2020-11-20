@@ -1,11 +1,43 @@
+/* eslint-disable quotes */
 /** Кастомные селекты */
 var selectors = document.querySelectorAll('.custom-select');
 selectors.forEach(changeCurrentValue);
 let event = new Event('change');
 var newsConfig = {
-    action: 'construct',
-
+    action: 'news-list',
+    year: new Date().getFullYear()
 };
+var singleNewsConfig = {
+    action: 'news-single',
+
+}
+
+
+
+function serialize(obj) {
+    let data = new FormData()
+    for (val in obj) {
+        data.append(val, obj[val]);
+    }
+    return data;
+}
+
+function setCustomSelectValue(selector, value) {
+
+    selector.querySelectorAll('.custom-select__item').forEach(select => {
+
+
+        selector.querySelectorAll('.custom-select__item').forEach(el => el.classList.remove('custom-select__item-current'))
+        console.log(value.toString() === select.dataset.value.toString());
+        if (value.toString() === select.dataset.value.toString()) {
+            select.classList.add('custom-select__item-current');
+        }
+        selector.currentValue = value;
+        selector.dispatchEvent(event);
+        // console.log(selector.currentValue);
+    });
+}
+
 
 function changeCurrentValue(selector) {
     selector.currentValue = selector.querySelectorAll('.custom-select__item')[0].dataset.value;
@@ -24,29 +56,50 @@ function changeCurrentValue(selector) {
         evt.stopImmediatePropagation();
         newsConfig[evt.target.dataset.name] = evt.target.currentValue;
         // console.log(buildProgressConfig);
-        fetch('static/news-app.php')
-            .then((response) => response.json())
-            .then((res => {
-                let newsListContainer = document.querySelector('.news-list-container .parent');
-                newsListContainer.innerHTML = '';
-                let fetchedList = '';
-                res.forEach(el => {
-                    console.log(el);
-                    fetchedList += `
-                        <div class="news-link">
-                            <div class="news-link__date">${el.date}</div>
-                            <div class="news-link__title">${el.text}</div>
-                        </div>
-                    `
-                });
-                newsListContainer.insertAdjacentHTML('beforeend', fetchedList);
-            }))
+        postAjax('static/news-app.php', serialize(newsConfig), putNewsLinks)
     });
 };
 
-changeCurrentValue(selectors[0])
-    // changeCurrentValue(selectors[1])
 
+
+function putNewsLinks(ajaxResult) {
+    let newsListContainer = document.querySelector('.news-list-container .parent');
+    newsListContainer.innerHTML = String();
+    let fetchedNewsList = String();
+    ajaxResult.forEach(el => {
+        console.log(el);
+        fetchedNewsList += `
+            <div class="news-link" onclick="">
+                <div class="news-link__date">${el.date}</div>
+                <div class="news-link__title">${el.text}</div>
+            </div>
+        `
+    });
+    newsListContainer.insertAdjacentHTML('beforeend', fetchedNewsList);
+    document.querySelectorAll('.news-link').forEach((el, i) => {
+        el.addEventListener('click', function(evt) {
+            singleNewsConfig.ID = i;
+            postAjax('static/news-app.php', serialize(singleNewsConfig), putSingleNews)
+        });
+    })
+}
+
+
+function putSingleNews(ajaxResult) {
+    document.querySelector('.single-news-container .parent').innerHTML = '';
+    document.querySelector('.single-news-container .parent').insertAdjacentHTML('beforeend', ajaxResult['text'])
+}
+changeCurrentValue(selectors[0]);
+
+// changeCurrentValue(selectors[1])
+function postAjax(url, data, callback) {
+    fetch(url, {
+            method: "POST",
+            body: data
+        })
+        .then((response) => response.json())
+        .then(callback)
+}
 
 
 
