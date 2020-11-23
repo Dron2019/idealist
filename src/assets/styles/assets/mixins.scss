@@ -24,3 +24,8 @@ $lineHeight) {
     font-size: #{$font}px;
     line-height: #{($lineHeight * 100 / $font)/100}em;
 }
+
+@function lh($lh,
+$fz) {
+    @return #{($lh/$fz)}em
+}

@@ -28,6 +28,8 @@
         padding-bottom: 54px;
         padding-left: var(--side-fields);
         padding-right: var(--side-fields);
+        position: relative;
+        background: var(--other-gray);
     }
     &__main-left {
         display: flex;

@@ -1,0 +1,78 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "location";
+block meta
+    title= 'Idealist Расположение'
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/location.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    .double-part-section.symmetrical
+        .double-part-section__text.home-screen-description-block
+            .home-screen-description-block__title.title Идеальное расположение1
+            .home-screen-description-block__text-wrap
+                <svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    </svg>
+                .home-screen-description-block__text Комплекс окружен тремя киевскими парками, дипломатическими, культурными и образовательными учреждениями. В шаговойдоступности от комплекса находится маркет Пчелка, магазин стройматериалов WDS, школы и детскиесады. В районе есть футбольное поле, школа Динамо Валерия Лобановского, парк аттракционов ИталПарк, Студия танцев, художественная школа. Большинство благ столицы – в паре минут на авто. 
+        picture.double-part-section__img
+            img(src="./assets/images/index/last-section.jpg")
+            .location-sticker ЖК Идеалист расположен в Шевченковском районе Киева, по ул. Ж.Жабаева 5
+    .location-block
+        img(src="./assets/images/location/mask.png").location-block__bg
+        .subtitle Это обобщающий заголовок на две три строки
+        .location-vert-slider
+            .location-vert-slider__slide.slide
+                .location-vert-slider__slide-digit.big-digit  3 
+                .location-vert-slider__slide-text
+                    <svg class="metro-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36 23V37H33.26V27.92L29.32 34.42H29L25.06 27.94V37H22.3V23H25.14L29.16 29.62L33.16 23H36Z" fill="#EB8271"/>
+                        <circle cx="30" cy="30" r="29.5" stroke="#EB8271"/>
+                        </svg>
+                    span минуты пешком до метро Берестейская 
+            .location-vert-slider__slide.slide
+                .location-vert-slider__slide-digit.big-digit  20 
+                .location-vert-slider__slide-text
+                    <svg class="metro-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36 23V37H33.26V27.92L29.32 34.42H29L25.06 27.94V37H22.3V23H25.14L29.16 29.62L33.16 23H36Z" fill="#EB8271"/>
+                        <circle cx="30" cy="30" r="29.5" stroke="#EB8271"/>
+                        </svg>
+                    span минуты пешком до метро Нивки
+            .location-vert-slider__slide.slide
+                .location-vert-slider__slide-digit.big-digit  20 
+                .location-vert-slider__slide-text
+                    <svg class="metro-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36 23V37H33.26V27.92L29.32 34.42H29L25.06 27.94V37H22.3V23H25.14L29.16 29.62L33.16 23H36Z" fill="#EB8271"/>
+                        <circle cx="30" cy="30" r="29.5" stroke="#EB8271"/>
+                        </svg>
+                    span минуты пешком Большевика
+        .vertical-arrows
+            .arrow.arrow-s.prev
+                +svg('arrow')
+            .arrow.arrow-s.next
+                +svg('arrow')
+
+    .watch-more
+        .watch-more__head-title  Хотите узнать больше?
+        a.watch-more__block(href="developer.html" )
+            .watch-more__title Застройщик
+            .glitch.glitch--style-1
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+        a.watch-more__block(href="gallery.html" )
+            .watch-more__title Галерея
+            .glitch.glitch--style-4
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+block footer
+block header

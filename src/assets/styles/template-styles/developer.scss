@@ -9,6 +9,10 @@
     .double-part-section:first-child .double-part-section__img {
         height: calc(100vh + var(--header-height));
     }
+    .watch-more {
+        position: relative;
+        background-color: var(--white);
+    }
     /*scroll screen*/
     // .scrolling-screen {
     //     padding-left: 0;
