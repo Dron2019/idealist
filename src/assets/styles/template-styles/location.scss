@@ -1,6 +1,5 @@
 #location {
     background-color: var(--white);
-    padding-top: var(--header-height);
     .double-part-section__img {
         position: relative;
     }
@@ -16,6 +15,9 @@
             width: 100%;
             padding: var(--side-fields);
         }
+    }
+    @include to(575px) {
+        padding-top: var(--header-height);
     }
 }
 

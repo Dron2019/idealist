@@ -339,6 +339,10 @@ form.disabled {
     &.orange {
         background-color: var(--orange);
     }
+    &.vertical {
+        width: 1px;
+        height: 100%;
+    }
 }
 
 .logo-with-slogan {
@@ -1442,6 +1446,9 @@ form.disabled {
         margin-bottom: 52px;
         color: var(--blue);
         @include fontSizeLhToEm(30, 38);
+    }
+    &.white {
+        background-color: var(--white);
     }
     @include to(768px) {
         &__block {

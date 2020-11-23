@@ -1,0 +1,126 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "philosophy";
+block meta
+    title= 'Idealist Расположение'
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/philosophy.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    .philosophy-front
+        .philosophy-front__top
+            picture
+                img(src="./assets/images/philosophy/top-render.jpg")
+        .philosophy-front__bottom
+            .subtitle Каждая деталь комплекса продумана для уюта, комфорта и безопасности жителей
+            .home-screen-description-block
+                .home-screen-description-block__subtitle.subtitle Философия проекта
+                .home-screen-description-block__title.title Это заголовок
+                .home-screen-description-block__text-wrap
+                    <svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                        <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                        </svg>
+                    .home-screen-description-block__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. Це може бути слайдер з фотографіями, відео
+        .philosophy-slider.js-philosophy-slider
+            .philosophy-slider-arrows
+                .arrow.prev
+                    +svg('arrow')
+                .arrow.next
+                    +svg('arrow')
+            img(src="./assets/images/gallery/1_gallery.jpg").slide
+            img(src="./assets/images/gallery/2_gallery.jpg").slide
+            img(src="./assets/images/gallery/3_gallery.jpg").slide
+            img(src="./assets/images/gallery/4_gallery.jpg").slide
+            img(src="./assets/images/gallery/5_gallery.jpg").slide
+            img(src="./assets/images/gallery/6_gallery.jpg").slide
+            img(src="./assets/images/gallery/7_gallery.jpg").slide
+            img(src="./assets/images/gallery/8_gallery.jpg").slide
+            img(src="./assets/images/gallery/9_gallery.jpg").slide
+    .philosophy-block
+        .home-screen-description-block
+            .home-screen-description-block__title.title Это заголовок
+            .home-screen-description-block__text-wrap
+                <svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    </svg>
+                .home-screen-description-block__text.text
+                    p Уже с порога онпроизводит впечатление просторным обустроенным лобби, бесшумной работой надежных лифтов иэстетичностью отделки. 
+                    p Комплекс включает всего 26 квартир на 10 этажей, что позволило увеличитьжилые площади и высоту потолков. 
+                    p ЖК Идеалист – это широкий простор для жизни, целей и творчества ипрекрасная среда для добрососедских отношений!
+                    p ЖК Идеалист – это идеальное воплощение комфортной жизни в столице! «Идеалист» - это идеальный формат вашего жилья.
+                    .build-characterisrics-wrapper
+                        .build-characterisrics__item
+                            .build-characterisrics-wrapper__digit 26
+                            .build-characterisrics-wrapper__desc 
+                                <svg width="48" height="51" viewBox="0 0 48 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M46.8645 36.7481L46.7063 14.4347L46.5016 14.0432L24.0683 1H23.8626H23.6569L1.20468 14.0447L1 14.4219L1.14649 36.7445L1.28022 37.0063L23.761 50H24.1724L46.719 37.0181L46.8645 36.7481ZM38.2201 31.479L31.3708 27.5167L31.6306 11.3783L38.4784 15.3539L38.2201 31.479ZM46.0519 36.01L38.7627 31.7929L39.0286 15.1794L38.8918 14.9379L31.5015 10.6601L31.0901 10.8929L30.7287 27.2022L24.0744 23.4104V2.14486L45.787 14.6756L46.0519 36.01ZM23.564 2.14486V23.5104L16.0956 27.8321L1.99072 36.0003L1.89272 14.6741L23.564 2.14486ZM23.9672 49.2824L2.3669 36.7547L4.30189 35.6267L23.9141 24.252L43.8408 35.717L45.6288 36.7516L23.9672 49.2824Z" fill="#99918A" stroke="#99918A" stroke-width="0.3"/>
+                                    <path d="M9.65685 24.786L17.8414 19.9605L17.9486 19.7242V11.4442L17.5504 11.2084L9.37255 16.0339L9.27148 16.2702V24.5502L9.65685 24.786ZM9.7819 16.4269L17.4382 11.923V19.568L9.7819 24.0719V16.4269Z" fill="#99918A"/>
+                                    </svg>
+                                span квартир
+                        .delimiter.vertical
+                        .build-characterisrics__item
+                            .build-characterisrics-wrapper__digit 10
+                            .build-characterisrics-wrapper__desc 
+                                +svg('build')
+                                span этажей
+    .philosophy-double-section
+        picture.philosophy-double-section__img
+            img(src="./assets/images/philosophy/kids.jpg")
+        .philosophy-double-section__text.home-screen-description-block
+            .home-screen-description-block__title.title Окружение
+            .home-screen-description-block__text-wrap
+                <svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    </svg>
+                .home-screen-description-block__text.text
+                    p Комфорт столичной жизни невозможен без развитой инфраструктуры. ЖК Идеалист находится вокружении дипломатических и образовательных объектов, которые включают детские сады, школы иуниверситеты. 
+                    p В ближайшей доступности расположена государственная художественная школа им. Т.Шевченка, Британская международная школа, ДЮФШ Динамо Валерия Лобановского, университет КРОК и многие другие. Многочисленные магазины, кафе, почтовые отделения обеспечивают  удобныйбыт района. 
+        <svg class="logo-on-bg" width="1360" height="237" viewBox="0 0 1360 237" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1005.76 236.358V118.191H988.197V0.0239258L939.893 0.0239258V118.191H957.458V236.358H1005.76Z" fill="#E6E3DE"/>
+            <path d="M639.67 118.191L587.972 0.0239258L568.011 0.0239258L516.114 118.191L533.679 118.191L481.781 236.358H533.679L546.853 205.619L643.463 205.619L656.637 236.358H708.535L656.837 118.191H639.67ZM563.82 165.897L582.583 118.191H565.017L577.792 86.0545L590.567 118.191H608.132L626.896 165.897L563.82 165.897Z" fill="#E6E3DE"/>
+            <path d="M909.14 236.358V192.645L805.544 192.645V118.191H787.979V0.0239258L739.674 0.0239258V118.191H757.239V236.358L909.14 236.358Z" fill="#E6E3DE"/>
+            <path d="M1200.76 118.192H1183.2C1174.81 112.204 1164.43 106.615 1152.06 101.226L1125.11 89.8483C1114.53 85.2574 1107.35 81.0656 1103.36 77.4727C1099.36 73.8797 1097.37 69.2888 1097.37 63.5002C1097.37 56.514 1100.16 51.1246 1105.55 47.332C1111.14 43.3399 1118.13 41.5434 1126.71 41.5434C1144.67 41.5434 1159.64 50.3262 1171.82 67.8916L1204.76 43.3399C1197.17 29.9662 1186.59 19.3871 1173.22 11.802C1159.84 4.01736 1144.27 0.224854 1126.71 0.224854C1103.95 0.224854 1085.19 6.21305 1070.42 17.9899C1055.65 29.7667 1048.26 45.5356 1048.26 64.8975C1048.26 86.0558 1059.64 103.821 1082.4 118.392L1099.96 118.392C1106.75 122.783 1114.53 126.776 1123.12 130.568L1148.47 141.546C1160.44 146.936 1168.43 151.327 1172.42 154.92C1176.41 158.513 1178.61 163.503 1178.61 169.891C1178.61 177.675 1175.61 183.863 1169.62 188.454C1163.64 193.045 1155.45 195.241 1144.87 195.241C1122.92 195.241 1103.55 184.262 1086.79 162.106L1053.45 186.258C1062.84 202.027 1075.41 214.203 1091.18 223.186C1107.15 232.168 1124.91 236.759 1144.67 236.759C1168.83 236.759 1188.59 230.571 1204.16 217.996C1219.73 205.421 1227.51 188.853 1227.51 168.493C1227.51 153.323 1222.92 140.548 1213.54 130.368C1210.54 125.778 1206.15 121.985 1200.76 118.192Z" fill="#E6E3DE"/>
+            <path d="M318.505 138.751L399.745 138.751V118.191L382.18 118.191V97.6316H300.94V43.7378L415.913 43.7378V0.0239258L252.635 0.0239258L252.635 118.191H270.2L270.2 236.358L433.479 236.358V192.645L318.505 192.645V138.751Z" fill="#E6E3DE"/>
+            <path d="M204.139 117.393C204.538 82.6609 192.762 54.5163 168.41 32.3599C144.058 10.2036 113.118 -0.575183 75.3928 0.0236377L-2.05469 0.0236377L-2.05469 118.191H15.5107L15.5107 236.358L92.9582 236.358C130.285 236.758 161.024 225.779 185.775 203.024C210.127 180.468 222.304 152.324 221.904 118.191L204.339 118.191V117.393H204.139ZM150.245 172.085C135.674 185.858 116.512 192.644 92.559 192.644L63.8156 192.644L63.8156 118.191H46.2502L46.2502 43.7376L74.9936 43.7376C99.3456 43.7376 118.708 50.3246 133.079 63.4986C147.451 76.6727 154.637 94.6373 154.637 117.592C154.637 117.792 154.637 117.991 154.637 118.391H172.202C171.803 140.547 164.617 158.512 150.245 172.085Z" fill="#E6E3DE"/>
+            <path d="M1458.67 43.7378V0.0239258L1258.86 0.0239258V43.7378L1334.51 43.7378V118.191H1352.08V236.358H1400.38V118.191L1382.82 118.191V43.7378L1458.67 43.7378Z" fill="#E6E3DE"/>
+            </svg>
+    .philosophy-double-section
+        .philosophy-double-section__text.home-screen-description-block
+            .home-screen-description-block__title.title Инфраструктура
+            .home-screen-description-block__text-wrap
+                <svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    </svg>
+                .home-screen-description-block__text 
+                    p Собственная инфраструктура комплекса дополняет объекты района – на первом этаже ЖК Идеалист предусмотрено свое кафе, магазины и другие коммерческие помещения.
+                    p ЖК Идеалист расположен в Шевченковском районе Киева, по ул. Ж.Жабаева 5«Идеалист» - это идеальный формат вашего жилья. 
+                .scrolling-screen-slide__btn.button-std(data-before="Квартиры")
+        picture.philosophy-double-section__img
+            img(src="./assets/images/philosophy/chef.jpg")
+    .watch-more.white
+        .watch-more__head-title  Хотите узнать больше?
+        a.watch-more__block(href="developer.html" )
+            .watch-more__title Застройщик
+            .glitch.glitch--style-1
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more1.jpg) no-repeat 50% 0;")
+        a.watch-more__block(href="gallery.html" )
+            .watch-more__title Галерея
+            .glitch.glitch--style-4
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+                .glitch__img(style="background: url(./assets/images/watch-more2.jpg) no-repeat 50% 0;")
+block footer
+block header
