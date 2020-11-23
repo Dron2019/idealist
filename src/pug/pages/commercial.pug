@@ -1,0 +1,48 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "commercial";
+block meta
+    title= 'Idealist Расположение'
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/commercial.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    section.double-part-section.symmetrical.reverse.white
+        picture.double-part-section__img
+            img(src="./assets/images/commercial/commercial-front.jpg")
+        .double-part-section__text.home-screen-description-block
+            .home-screen-description-block__subtitle.subtitle Коммерческие помещения ЖК Идеалист
+            .home-screen-description-block__title.title Идеальное расположение
+            .home-screen-description-block__text-wrap
+                <svg class="home-screen-description-block__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                    </svg>
+                .home-screen-description-block__text Выгодное расположение в оживленном столичном районе и респектабельная недвижимость –отличная   предпосылка   для   успешного   бизнеса.   ЖК   Идеалист   предлагает   просторные коммерческие помещения на первом этаже, которые открывают широкие перспективы дляразвития своего дела.
+    .commercial-slider
+        .title Уникальные особености коммерции комплекса:
+        -
+            var comSlides =  [
+                    ['Идеальные помещения','Просторные помещения и высокие потолки от 3,3 до 3,9 м. Это идеальное место для деловых переговоров, атмосферных кофеен или стильных шоу-румов.'],
+                    ['Престижность комплекса','Здесь представительство любого бизнеса приобретает особыйстатус и демонстрирует высокий уровень.'],
+                    ['Интеллектуальное   окружение','Рядом находится множество   образовательных идипломатических учреждений, офисных центров и посольских представительств, которыемогут стать источником бизнес-партнеров и хороших клиентов.'],
+                    ['Близость центра','Близость центра, крупных транспортных артерий и станций метро. Это делает коммерциюдоступной для посетителей и удобной для встреч.'],
+                    ['Разнообразные   планировки','Разнообразные   планировки   и   площади   коммерческих   помещений.   Каждый   сможетподобрать помещение для своих целей.'],
+                ];
+        each val,index in comSlides
+            .commercial-slide.js-scrolling-screen-slide.white
+                .commercial-slide__text-block
+                    <svg class="commercial-slide__decor" width="11" height="52" viewBox="0 0 11 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                        <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
+                        </svg>
+                    .commercial-slide__title 10 мин до чего-то
+                    .commercial-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
+                img(src="./assets/images/commercial/0"+(index+1)+".jpg").commercial-slide__img
+block footer
+block header
