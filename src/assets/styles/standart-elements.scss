@@ -1080,7 +1080,8 @@ form.disabled {
         width: 190px;
         margin-left: auto;
         margin-right: 0;
-        margin-top: 20px;
+        margin-top: 45px;
+        background-color: transparent;
     }
     .checkbox-first {
         margin-bottom: 0px;
@@ -1091,7 +1092,7 @@ form.disabled {
         border: none;
         font-size: 14px;
         line-height: 22px;
-        font-family: Raleway;
+        font-family: $default-font;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -1111,8 +1112,8 @@ form.disabled {
         position: relative;
         display: flex;
         align-items: flex-start;
-        margin-top: 15px;
-        padding-bottom: 25px;
+        margin-top: 30px;
+        padding-bottom: 14px;
         margin-right: auto;
         width: 100%;
         overflow: hidden;
@@ -1184,6 +1185,9 @@ form.disabled {
     .time-group-js {
         opacity: 0;
     }
+    .sublegend {
+        margin-bottom: 30px;
+    }
     @include from(769px) {
         .sign-with-icon {
             height: 1.6em;
@@ -1237,7 +1241,7 @@ form.disabled {
 
 .invalid-message {
     position: absolute;
-    bottom: 3px;
+    bottom: 0;
     left: 0;
     font-size: 0.8rem;
     color: red;
@@ -1399,6 +1403,9 @@ form.disabled {
     display: flex;
     align-items: flex-start;
     color: var(--black);
+    &.orange {
+        color: var(--orange);
+    }
     .slider-counter-type2__current {
         font-size: 40px;
         line-height: 38px;

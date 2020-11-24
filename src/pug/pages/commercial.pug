@@ -41,8 +41,31 @@ block content
                         <path d="M1 29V0" stroke="#EB8271" stroke-miterlimit="10"/>
                         <path d="M10 52V0" stroke="#EB8271" stroke-miterlimit="10"/>
                         </svg>
-                    .commercial-slide__title 10 мин до чего-то
-                    .commercial-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
+                    .commercial-slide__title #{val[0]}
+                    .commercial-slide__text #{val[1]}
                 img(src="./assets/images/commercial/0"+(index+1)+".jpg").commercial-slide__img
+                .slider-counter-type2.orange.js-other-projects-counter
+                    .slider-counter-type2__current #{index+1}
+                    .slider-counter-total #{comSlides.length}
+    .commercial-bottom
+        +svg('big-logo')
+        .commercial-bottom__content
+            .commercial-bottom__content-left
+                .commercial-bottom-title Развивайте успешный бизнес вместе с ЖК Идеалист!
+                .text
+                    p Чтобы подробнее узнать о недвижимости и ознакомиться с его особенностями обращайтесь сотдел продаж ЖК Идеалист.
+                    p Менеджер по коммерчиской недвижимости:
+                    a(href='tel:'+complexTel).commercial-bottom-link #{complexTel}
+                .delimiter.orange.vertical
+            form.commercial-bottom__content-right.common-form.common-form-js(data-name="contact-form")
+                legend Заказать звонок:
+                .text.sublegend Оставьте свой номер и мы свяжемся с вами
+                .input-group
+                    .input-group__icon
+                    input(autocomplete="off" data-error_mes="Введите имя" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
+                .input-group
+                    .input-group__icon
+                    input(autocomplete="off" data-error_mes="Введите номер телефона" name="tel" inputmode="tel" data-required="true" type="text" data-pattern="" placeholder="Телефон:*")
+                button.button-std.submit-js(data-before="Жду звонка" type="submit")
 block footer
 block header

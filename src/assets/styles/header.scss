@@ -144,12 +144,28 @@
     @include to(575px) {
         padding: 10px var(--side-fields) 10px var(--side-fields);
         z-index: 6;
+        background-color: var(--white);
         .header-top,
         .header-bottom {
             display: none;
         }
         .mobile-header-top {
             margin-bottom: 10px;
+        }
+        &__link {
+            display: none;
+        }
+        &__logo {
+            width: 75px;
+        }
+        &__menu-button-text {
+            margin-right: 7.5px;
+        }
+        &__menu-button {
+            --self-svg-size: 25px;
+        }
+        &__languages {
+            max-height: 1.6em;
         }
     }
 }
@@ -1025,6 +1041,34 @@ header.headroom {
         }
         &__left {
             width: 35%;
+        }
+    }
+    @include to(575px) {
+        &__right {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: var(--side-fields);
+            padding-right: var(--side-fields);
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        &__left {
+            display: none;
+        }
+        &__group {
+            width: 50%;
+        }
+        &__group.double,
+        &__group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &__subtitle {
+            font-size: 18px;
+        }
+        &__link {
+            font-size: 14px;
         }
     }
 }
