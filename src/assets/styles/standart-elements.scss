@@ -869,6 +869,10 @@ form.disabled {
     margin-right: auto;
 }
 
+.invisible-block {
+    display: none;
+}
+
 .invisible-block a.current-page {
     pointer-events: none;
     color: var(--black);
@@ -1054,11 +1058,34 @@ form.disabled {
     max-width: 422px;
     .mfp-close {
         padding: 0 !important;
-        position: static;
-        width: 29px;
-        height: 29px;
+        position: absolute;
         cursor: pointer;
         transition: 0.5s ease-out;
+        right: 25px;
+        top: 25px;
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+    }
+    .mfp-close-img {
+        background-color: var(--orange);
+        width: 100%;
+        height: 100%;
+        width: 37px;
+        transition: .3s ease-out;
+        transform-box: fill-box;
+        height: 37px;
+    }
+    .mfp-close:before {
+        content: attr(data-before);
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.1em;
+        text-transform: lowercase;
+        color: var(--very-gray);
+        display: inline-block;
+        margin-right: 15px;
     }
     .help-span {
         width: 100%;
@@ -1069,10 +1096,12 @@ form.disabled {
         line-height: 13px;
     }
     legend {
-        color: var(--yellow);
+        color: var(--black);
         margin-bottom: 10px;
         font-weight: normal;
         @include fontSizeLhToEm(24, 30);
+        font-size: 30px;
+        line-height: 38px;
     }
     button[type=submit] {
         border: none;
@@ -1192,7 +1221,7 @@ form.disabled {
         .sign-with-icon {
             height: 1.6em;
         }
-        .mfp-close:hover {
+        .mfp-close:hover .mfp-close-img {
             transform: rotate(0.5turn);
         }
     }
@@ -1235,6 +1264,34 @@ form.disabled {
             order: 2;
             margin-left: auto;
             margin-right: auto;
+        }
+    }
+}
+
+.common-form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 448px;
+    overflow: hidden;
+    .common-form {
+        //отступ заголовка + высота кнопки закрыть + отступ кнопки закрыть от верха
+        padding-top: calc(42px + 37px + 25px);
+    }
+    &>img {
+        max-width: 448px;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+    @include to(768px) {
+        &>img {
+            width: 30%;
+        }
+    }
+    @include to(575px) {
+        &>img {
+            display: none;
         }
     }
 }

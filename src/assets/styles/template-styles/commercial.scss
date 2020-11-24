@@ -132,6 +132,8 @@
         flex-wrap: wrap;
         align-content: center;
         box-shadow: 0px 30px 50px rgba(221, 217, 211, 0.5);
+        background-color: var(--white);
+        z-index: 2;
     }
     &__content-left {
         position: relative;

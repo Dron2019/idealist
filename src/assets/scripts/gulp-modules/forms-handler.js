@@ -274,12 +274,13 @@ document.querySelectorAll('.input-group').forEach(icon => {
 
 /**вызов стандартной формы в всплывайке */
 const formRemovalDelay = 500;
-let $commonForm = document.querySelector('.common-form-js')
-$('.common-form-call-js').magnificPopup({
+let $commonForm = document.querySelector('.common-form-js');
+// js-form-call
+$('.js-form-call').magnificPopup({
     removalDelay: formRemovalDelay,
     items: [{
         type: 'inline',
-        src: $('.common-form-js')
+        src: $('.invisible-block .common-form-js')
     }],
     callbacks: {
         beforeOpen: function() {
@@ -293,60 +294,6 @@ $('.common-form-call-js').magnificPopup({
 });
 $.datetimepicker.setLocale('en');
 $('input[name=time-input]').datetimepicker({});
-
-
-
-function timeCheckboxesHandler() {
-    let contactFormTimeRadio = document.querySelector('.common-form .time-radio-js'),
-        contactFormTimeInput = document.querySelector('.common-form .time-group-js'),
-        $timeInputs = document.querySelectorAll('.common-form input[name=time],input[name=time-input]');
-
-
-    $timeInputs.forEach(input => {
-        input.addEventListener('change', function() {
-            changeDisplaying(contactFormTimeInput.closest('.input-group'), contactFormTimeRadio.checked)
-        });
-    });
-
-
-    function changeDisplaying(el, status) {
-        if (!status) {
-            console.log();
-            el.querySelector('input').value = '';
-            gsap.fromTo(el, {
-                height: function(e, target) {
-                    return getComputedStyle(target).height;
-                },
-                // marginTop: parseInt(getComputedStyle(el).marginTop),
-                autoAlpha: 1,
-            }, {
-                duration: 0.3,
-                // marginTop: 0,
-                autoAlpha: 0,
-                height: 0,
-            });
-        } else {
-            let tl = gsap.timeline()
-            tl.fromTo(el, {
-                height: 0,
-
-            }, {
-                duration: 0.3,
-                height: function(e, target) {
-                    return target.scrollHeight * 1.2;
-                },
-            });
-            tl.fromTo(el, {
-                autoAlpha: 0,
-            }, {
-                duration: 0.3,
-                autoAlpha: 1,
-            });
-
-        }
-    }
-}
-timeCheckboxesHandler();
 
 
 
