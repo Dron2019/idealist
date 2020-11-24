@@ -104,4 +104,19 @@ document.querySelectorAll('.watch-more__block').forEach(el => {
     el.addEventListener('mouseleave', function(evt) {
         this.querySelector('.glitch').classList.remove('active')
     });
-})
+});
+
+
+//светлый хедер
+
+var whiteHeader = ['build-progress', 'video-about', 'gallery'];
+if (whiteHeader.includes(document.querySelector('.page__inner').getAttribute('id'))) {
+    header.classList.add('light');
+    window.addEventListener('scroll', function(evt) {
+        if (document.documentElement.scrollTop > document.documentElement.clientHeight * 0.8) {
+            header.classList.remove('light');
+        } else {
+            header.classList.add('light');
+        }
+    });
+}

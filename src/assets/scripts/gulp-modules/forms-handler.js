@@ -292,6 +292,10 @@ $('.js-form-call').magnificPopup({
         },
     }
 });
+
+document.querySelector('.mfp-close-img').addEventListener('click', function(evt) {
+    $.magnificPopup.close();
+});
 $.datetimepicker.setLocale('en');
 $('input[name=time-input]').datetimepicker({});
 

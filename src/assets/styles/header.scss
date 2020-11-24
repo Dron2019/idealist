@@ -72,6 +72,7 @@
     }
     &__link,
     &__languages {
+        transition: .3s ease-out;
         margin-right: Max(1%, 47px);
     }
     &__logo {
@@ -81,6 +82,7 @@
         align-items: center;
         position: relative;
         z-index: 1;
+        transition: .3s ease-out;
     }
     &__menu-button {
         --self-svg-size: 37px;
@@ -100,6 +102,7 @@
             transition: .3s ease-out;
         }
         &-text {
+            transition: .3s ease-out;
             margin-right: 15px;
         }
         &-img {
@@ -107,6 +110,9 @@
             width: var(--self-svg-size);
             height: var(--self-svg-size);
         }
+    }
+    &.light &__menu-button-text {
+        color: var(--white);
     }
     &__menu-button.opened {
         .open-group {
