@@ -14,3 +14,13 @@ $('.location-vert-slider').on('beforeChange', () => {
 $('.location-vert-slider').on('afterChange', () => {
     document.querySelector('.location-vert-slider').classList.remove('glitched-title');
 })
+
+
+
+/**mobile elements moving */
+var sticker = document.querySelector('.location-sticker');
+document.querySelector('.double-part-section').insertAdjacentElement('beforeend', sticker);
+
+document.querySelector('.double-part-section').style.paddingBottom = sticker.getBoundingClientRect().height + 'px';
+document.querySelector('.double-part-section').style.position = 'relative';
+/**mobile elements moving END */

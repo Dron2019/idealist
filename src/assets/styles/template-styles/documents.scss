@@ -11,6 +11,20 @@
         @include shift-padding(2);
         // @include shift(0);
     }
+    @include to(768px) {
+        .page__content {
+            @include shift-padding(1);
+        }
+    }
+    @include to(575px) {
+        .page__content {
+            padding-left: var(--side-fields);
+            padding-right: var(--side-fields);
+        }
+        .title {
+            margin-top: 20px;
+        }
+    }
 }
 
 .docs-wrapper {
@@ -21,6 +35,9 @@
     // width: 580px;
     overflow: auto;
     position: relative;
+    @include to(575px) {
+        margin-top: 20px;
+    }
 }
 
 .doc {
@@ -56,6 +73,34 @@
         // &:hover~.doc {
         //     border-top-color: var(--orange);
         // }
+    }
+    @include to(575px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        flex-direction: column;
+        position: relative;
+        &__date {
+            font-size: 14px;
+            line-height: 1.6em;
+        }
+        &__title {
+            font-size: 14px;
+            line-height: 1.6em;
+        }
+        &__date,
+        &__title {
+            //ширина кнопки
+            max-width: calc(100% - 35px);
+        }
+        .arrow {
+            --self-width: 35px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
 }
 

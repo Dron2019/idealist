@@ -294,7 +294,11 @@ var ssb = {
 }
 
 window.onload = function() {
-    ssb.scrollbar('single-news-container'); // scrollbar initialization
+
+    if (document.documentElement.clientWidth > 575) {
+
+        ssb.scrollbar('single-news-container'); // scrollbar initialization
+    }
     ssb.scrollbar('news-list-container'); // scrollbar initialization
 
 }

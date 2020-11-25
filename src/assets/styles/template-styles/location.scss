@@ -18,6 +18,19 @@
     }
     @include to(575px) {
         padding-top: var(--header-height);
+        .double-part-section {
+            flex-direction: column-reverse;
+        }
+        .double-part-section>*:not(.location-sticker) {
+            width: 100%;
+        }
+        .double-part-section__img {
+            width: 100%;
+            min-height: 50vh;
+        }
+        .home-screen-description-block__title {
+            margin-top: 0;
+        }
     }
 }
 
@@ -74,6 +87,8 @@
         height: auto;
         &>.subtitle {
             width: 100%;
+            font-size: 18px;
+            line-height: 1.5em;
         }
         .location-vert-slider {
             @include size(10);
@@ -133,4 +148,7 @@
     line-height: 36px;
     color: var(--blue);
     background: var(--other-gray);
+    @include to(575px) {
+        @include fontSizeLhToEm(14, 21);
+    }
 }

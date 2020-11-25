@@ -2,7 +2,7 @@ function videoAboutHandler() {
     let video = document.querySelector('video');
     let arrow = document.querySelector('.arrow');
     let interval = setInterval(() => {
-        console.log('ssss');
+        // console.log('ssss');
         arrow.querySelector('.progress-indecator').style.clipPath = (function() {
             return `polygon(0 0, 
                 ${100 * (video.currentTime / video.duration)}% 0, 
@@ -13,7 +13,9 @@ function videoAboutHandler() {
     if (video.paused) {
 
         // arrow.style.transform = `translate(-50%,${document.documentElement.clientHeight / 2.2}px)`;
-        gsap.to(arrow, { y: document.documentElement.clientHeight / 2 });
+
+        // gsap.to(arrow, { y: document.documentElement.clientHeight / 2 });
+        gsap.to(arrow, { y: document.documentElement.clientHeight - arrow.getBoundingClientRect().bottom - arrow.getBoundingClientRect().height });
         arrow.querySelector('.play').style.opacity = '0';
         arrow.querySelector('.pause').style.opacity = '1';
         video.play()

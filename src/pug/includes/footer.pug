@@ -3,10 +3,10 @@
 		.footer__main-left
 			a(href="index.html")
 				+svg('logo').footer__logo
-			.footer__contact-row
+			.footer__contact-row.js-footer-contact-row
 				.footer__contact-row-title Телефон ЖК:&nbsp 
 				a(href="tel:0677987867").footer__contact-row-value (067) 798-78-67
-			.footer__contact-row
+			.footer__contact-row.js-footer-contact-row
 				.footer__contact-row-title Застройщик:&nbsp 
 				a( target='_blank' href="https://comfort-life.com.ua").footer__contact-row-value.underline comfort-life.com.ua
 		.footer__main-right
@@ -28,7 +28,7 @@
 					each val in menu[2]
 						li 
 							a(href=val[1] target='_blank').footer__link #{val[0]}
-			.footer__social-group
+			.footer__social-group.js-footer__social-group
 				a(target='_blank' href=fb).social-link
 					+svg('facebook')
 				a(target='_blank' href=viber).social-link

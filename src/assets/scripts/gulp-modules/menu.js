@@ -7,8 +7,9 @@ function fixedFooterTranslateOnPageBottom() {
     const coef = 0.9;
     let isNearBottom = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight * coef;
     if (!isNearBottom) return;
+    let footerHeight = document.querySelector('.footer-bottom').getBoundingClientRect().height;
     if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-        fixedFooter.style.transform = `translateY(-100%)`;
+        fixedFooter.style.transform = `translateY(${footerHeight*-1}px)`;
     } else {
         fixedFooter.style.transform = `none`;
     }
@@ -110,7 +111,7 @@ document.querySelectorAll('.watch-more__block').forEach(el => {
 //светлый хедер
 
 var whiteHeader = ['build-progress', 'video-about', 'gallery'];
-if (whiteHeader.includes(document.querySelector('.page__inner').getAttribute('id'))) {
+if (whiteHeader.includes(document.querySelector('.page__inner').getAttribute('id')) && document.documentElement.clientWidth > 575) {
     header.classList.add('light');
     window.addEventListener('scroll', function(evt) {
         if (document.documentElement.scrollTop > document.documentElement.clientHeight * 0.8) {
@@ -120,3 +121,22 @@ if (whiteHeader.includes(document.querySelector('.page__inner').getAttribute('id
         }
     });
 }
+
+
+
+
+/**Мобильный перенос елементов */
+
+if (document.documentElement.clientWidth < 769) {
+    dqsA('.js-footer-contact-row').forEach(el => {
+        el.style.marginTop = `var(--gap)`;
+        document.querySelector('.js-footer__social-group').insertAdjacentElement('beforebegin', el);
+    })
+
+}
+
+
+function dqsA(selector) {
+    return document.querySelectorAll(selector);
+}
+/**Мобильный перенос елементов END */

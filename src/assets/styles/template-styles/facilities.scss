@@ -27,6 +27,26 @@
             padding-right: 0;
         }
     }
+    @include to(575px) {
+        .double-part-section {
+            padding-left: var(--side-fields);
+            margin-top: var(--header-height);
+        }
+        .double-part-section__img {
+            width: calc(100% + (var(--side-fields) * 2));
+            margin-left: calc(var(--side-fields) * -1);
+            margin-right: calc(var(--side-fields) * -1);
+        }
+        .double-part-section__text {
+            height: auto;
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .home-screen-description-block__text-wrap {
+            margin-top: 20px;
+        }
+    }
 }
 
 .facilities-slider {
@@ -105,5 +125,15 @@
         margin-right: 15px;
         z-index: 1;
         position: relative;
+    }
+    @include to(575px) {
+        &__dots-row {
+            display: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        &__navigation-row {
+            margin-top: 20px;
+        }
     }
 }

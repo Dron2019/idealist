@@ -227,7 +227,7 @@ form.disabled {
         @include fontSizeLhToEm(48, 48);
     }
     @include to(575px) {
-        @include fontSizeLhToEm(18, 24);
+        @include fontSizeLhToEm(32, 32);
     }
 }
 
@@ -1517,6 +1517,24 @@ form.disabled {
     @include to(768px) {
         &__block {
             @include size(12);
+        }
+    }
+    @include to(575px) {
+        padding-bottom: 20px;
+        padding-top: 28px;
+        &__head-title {
+            font-size: 18px;
+            margin-left: var(--side-fields);
+            margin-bottom: 20px;
+        }
+        &__block {
+            height: 25vh;
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &__block:last-child {
+            margin-top: 20px;
         }
     }
 }

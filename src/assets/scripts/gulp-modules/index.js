@@ -161,58 +161,47 @@ document.querySelectorAll('.main-screen__but').forEach(el => {
 
 /**SCREEN 2 SCroll Slider  */
 // basic initialization
-var controller = new ScrollMagic.Controller();
-var scrollContainer = document.querySelector('.js-scrolling-screen');
-var fixedSlider = document.querySelector('.scroller-slide-fixed')
-let scrollState = {
-    position: 0,
-    delta: 0,
-};
-let scrollSlides = Array.from(document.querySelectorAll('.scrolling-screen-slide'))
-scrollSlides.forEach((slide, index) => {
-    var tempScene = new ScrollMagic.Scene({
-        duration: slide.getBoundingClientRect().height,
-        triggerElement: slide,
-        triggerHook: 0.5
-    }).addIndicators();
-    controller.addScene(tempScene);
-    tempScene.on("enter", function(event) {
-        document.querySelector('.js-scroller-slides-current').innerHTML = index + 1;
-        new Typed(fixedSlider.querySelector('.title'), {
-            showCursor: false,
-            strings: ['', slide.querySelector('.scrolling-screen-slide__title').innerText],
-            typeSpeed: 20
+
+
+function mainScreenFixedSliderEffects() {
+    var controller = new ScrollMagic.Controller();
+    var scrollContainer = document.querySelector('.js-scrolling-screen');
+    var fixedSlider = document.querySelector('.scroller-slide-fixed');
+    let scrollSlides = Array.from(document.querySelectorAll('.scrolling-screen-slide'));
+    scrollSlides.forEach((slide, index) => {
+        var tempScene = new ScrollMagic.Scene({
+            duration: slide.getBoundingClientRect().height,
+            triggerElement: slide,
+            triggerHook: 0.5
+        }).addIndicators();
+        controller.addScene(tempScene);
+        tempScene.on("enter", function(event) {
+            document.querySelector('.js-scroller-slides-current').innerHTML = index + 1;
+            //еффект печати текста
+            new Typed(fixedSlider.querySelector('.title'), {
+                showCursor: false,
+                strings: ['', slide.querySelector('.scrolling-screen-slide__title').innerText],
+                typeSpeed: 20
+            });
+            // document.querySelector('.scrolling-screen__left .title').innerHTML = Math.random() + index + 1
         });
-
-        // document.querySelector('.scrolling-screen__left .title').innerHTML = Math.random() + index + 1
+        scrollContainer.style.height = scrollSlides.length * slide.getBoundingClientRect().height + 'px';
     });
-    scrollContainer.style.height = scrollSlides.length * slide.getBoundingClientRect().height + 'px';
-})
 
-let scrollScene = new ScrollMagic.Scene({
-    duration: document.querySelector('.js-scrolling-screen').getBoundingClientRect().height,
-    triggerElement: document.querySelector('.js-scrolling-screen'),
-    triggerHook: 0
+    let scrollScene = new ScrollMagic.Scene({
+        duration: document.querySelector('.js-scrolling-screen').getBoundingClientRect().height,
+        triggerElement: document.querySelector('.js-scrolling-screen'),
+        triggerHook: 0
 
-}).setPin('.scrolling-screen__left');
-controller.addScene(scrollScene);
+    }).setPin('.scrolling-screen__left');
+    controller.addScene(scrollScene);
 
-
-scrollScene.addIndicators()
-scrollScene.on("enter", function(event) {
-    // console.log(event);
-    document.querySelector('.js-scrolling-screen').scrollIntoView();
-
-});
-scrollScene.on("progress", function(event) {
-    console.log(event);
-    // if (event.progress > 0.8) {
-    //     fixedSlider.style.transform = `scale(${event.progress})`;
-    // } else {
-
-    //     fixedSlider.style.transform = `scale(${1})`;
-    // }
-});
+    scrollScene.addIndicators()
+    scrollScene.on("enter", function(event) {
+        document.querySelector('.js-scrolling-screen').scrollIntoView();
+    });
+}
+if (document.documentElement.clientWidth > 575) mainScreenFixedSliderEffects();
 /**SCREEN 2 SCroll Slider end   */
 
 

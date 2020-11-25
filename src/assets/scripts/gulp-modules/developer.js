@@ -21,7 +21,7 @@ scrollSlides.forEach((slide, index) => {
         duration: slide.getBoundingClientRect().height,
         triggerElement: slide,
         triggerHook: 0.5
-    }).addIndicators();
+    }) /*.addIndicators();*/
     controller.addScene(tempScene);
 
     let tl = new TimelineMax();
@@ -57,11 +57,18 @@ let scrollScene = new ScrollMagic.Scene({
 controller.addScene(scrollScene);
 
 
-scrollScene.addIndicators()
+// scrollScene.addIndicators();
+
+
+console.log();
+
+if (document.documentElement.clientWidth < 576) {
+    document.querySelector('.scrollmagic-pin-spacer').style.width = document.documentElement.clientWidth - document.querySelector('.other-project-wrapper__left').getBoundingClientRect().width + 'px'
+
+}
 scrollScene.on("enter", function(event) {
     // console.log(event);
     scrollContainer.scrollIntoView();
-
 });
 scrollScene.on("progress", function(event) {
     // console.log(event);

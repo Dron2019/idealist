@@ -11,4 +11,8 @@
         transform: translate(-50%, -50%);
         transition: .7s ease-out;
     }
+    @include to(575px) {
+        height: calc(100vh - 50px - var(--header-height));
+        margin-top: var(--header-height);
+    }
 }

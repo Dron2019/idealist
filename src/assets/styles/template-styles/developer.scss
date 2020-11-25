@@ -40,6 +40,14 @@
     //     height: 100vh;
     // }
     /*scroll screen end*/
+    @include to(575px) {
+        .double-part-section {
+            flex-direction: column-reverse;
+        }
+        .double-part-section:first-child .double-part-section__img {
+            height: 50vh;
+        }
+    }
 }
 
 .other-project-wrapper {
@@ -95,6 +103,15 @@
         height: calc(100vh - var(--vert-padding));
         margin-top: calc(var(--vert-padding));
         margin-bottom: calc(var(--vert-padding));
+    }
+    @include to(575px) {
+        --vert-padding: 40px;
+        &__left {
+            // @include size(8);
+        }
+        &__right .title {
+            font-size: 24px;
+        }
     }
 }
 

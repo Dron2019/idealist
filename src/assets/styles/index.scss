@@ -132,6 +132,25 @@
     .arrow.left-side {
         transform: rotate(0.5turn);
     }
+    @include to(768px) {
+        &__slide {
+            padding: 0;
+        }
+        .slick-active~* {
+            transform: translateX(0);
+        }
+    }
+    @include to(575px) {
+        padding-left: var(--side-fields);
+        padding-right: var(--side-fields);
+        &__title {
+            font-size: 36px;
+            line-height: 36px;
+        }
+        &__slider {
+            width: 100%;
+        }
+    }
 }
 
 .scrolling-screen {
@@ -955,6 +974,21 @@
             // border: 1px solid blue;
         }
     }
+    @include to(575px) {
+        padding-bottom: 40px;
+        &__left {
+            display: none;
+        }
+        &__right {
+            width: 100%;
+            .scrolling-screen-slide {
+                height: auto;
+            }
+            .scrolling-screen-slide__text-block {
+                margin-left: 0 !important;
+            }
+        }
+    }
 }
 
 .screen3 {
@@ -1023,6 +1057,32 @@
         top: 40px;
         left: 40px;
     }
+    @include to(950px) {
+        &__text-block {
+            width: calc(100% / 7 * 5);
+            margin-top: -40px;
+            padding-bottom: 40px;
+        }
+    }
+    @include to(575px) {
+        &__title {
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+        &__text-block {
+            // width: calc(100% / 7 * 5);
+            width: 100%;
+            margin-top: 0px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-left: 50px;
+            padding-right: 20px;
+        }
+        &__decor {
+            left: 20px;
+            top: 40px;
+        }
+    }
 }
 
 .horisontal-scroll-section {
@@ -1035,6 +1095,9 @@
     .scroll-element-js {
         position: relative;
         left: 50vw;
+    }
+    @include to(950px) {
+        height: 50vh;
     }
 }
 
@@ -1058,16 +1121,50 @@
         grid-column-gap: 20px;
         grid-row-gap: 20px;
     }
+    @include from-to(575px, 768px) {
+        display: grid;
+        grid-template-columns: repeat(12, calc(100% / 12 - 9.2px));
+        grid-template-rows: repeat(12, calc(80px));
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+    @include to(950px) {
+        padding-top: 85px;
+        padding-bottom: 85px;
+        .home-screen-description-block {
+            grid-area: 1/8/5/12;
+        }
+        .video-play-button {
+            min-height: 25vh;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+    }
     @include to(575px) {
         padding-top: 20px;
         padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
         .infra-block-part {
             min-height: 25vh;
+            margin-bottom: 20px;
+            order: 2;
+        }
+        .infra-block-map-link {
+            order: 4;
+        }
+        .video-play-button {
+            order: 3;
         }
         .infra-block-map-link {
             display: inline-flex;
             width: 100%;
             min-height: 25vh;
+        }
+        .home-screen-description-block {
+            padding-top: 20px;
+            order: 1;
+            margin-bottom: 20px;
         }
     }
 }
@@ -1093,6 +1190,18 @@
         left: 45px;
         top: 50px;
     }
+    @include to(950px) {
+        &__text {
+            font-size: 36px;
+            left: 20px;
+            top: 20px;
+        }
+    }
+    @include to(575px) {
+        &__text {
+            font-size: 24px;
+        }
+    }
     @include from(575px) {
         &.bottom-align &__text {
             top: auto;
@@ -1115,14 +1224,23 @@
 
 .infra-block-parking {
     grid-area: 5/8/8/11;
+    @include to(950px) {
+        grid-area: 5/8/8/13;
+    }
 }
 
 .infra-block-lobby {
     grid-area: 9/5/13/8;
+    @include to(950px) {
+        grid-area: 9/4/13/8;
+    }
 }
 
 .infra-block-cafe {
     grid-area: 9/8/12/10;
+    @include to(950px) {
+        grid-area: 9/8/12/12;
+    }
 }
 
 .infra-block-map-link {
@@ -1142,6 +1260,9 @@
         margin-right: 16px;
         content: '';
         background-image: url("data:image/svg+xml,%3Csvg width='10' height='14' viewBox='0 0 10 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 6.65C5.4736 6.65 5.9278 6.46563 6.26269 6.13744C6.59758 5.80925 6.78572 5.36413 6.78572 4.9C6.78572 4.43587 6.59758 3.99075 6.26269 3.66256C5.9278 3.33437 5.4736 3.15 5 3.15C4.5264 3.15 4.0722 3.33437 3.73731 3.66256C3.40242 3.99075 3.21429 4.43587 3.21429 4.9C3.21429 5.36413 3.40242 5.80925 3.73731 6.13744C4.0722 6.46563 4.5264 6.65 5 6.65ZM5 0C6.32608 0 7.59785 0.516248 8.53553 1.43518C9.47322 2.3541 10 3.60044 10 4.9C10 8.575 5 14 5 14C5 14 0 8.575 0 4.9C0 3.60044 0.526784 2.3541 1.46447 1.43518C2.40215 0.516248 3.67392 0 5 0Z' fill='%23EB8271'/%3E%3C/svg%3E%0A");
+    }
+    @include to(950px) {
+        grid-area: 8/8/8/13;
     }
 }
 
@@ -1170,6 +1291,24 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+    @include to(950px) {
+        &__title {
+            font-size: 48px;
+        }
+    }
+    @include to(768px) {
+        &__title {
+            font-size: 36px;
+        }
+    }
+    @include to(575px) {
+        &__title {
+            font-size: 24px;
+        }
+        &__text-wrap {
+            padding-left: 20px;
+        }
     }
 }
 
@@ -1216,16 +1355,27 @@
     @include to(950px) {
         &__text {
             padding-left: 0;
+            padding-right: 0;
         }
     }
     @include to(575px) {
         padding-left: 0;
+        min-height: auto;
         &__img,
         &__text {
             width: 100%;
         }
         &__text {
+            padding-top: 20px;
+            padding-bottom: 20px;
             padding-left: var(--side-fields);
+        }
+        &__img {
+            margin-top: auto;
+            height: calc(50vh - var(--header-height));
+        }
+        .button-std {
+            margin-top: 20px;
         }
     }
 }

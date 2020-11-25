@@ -33,12 +33,27 @@
             padding-right: 0;
         }
     }
+    @include to(575px) {
+        .double-part-section__text {
+            padding-left: var(--side-fields);
+            padding-right: var(--side-fields);
+        }
+        .double-part-section__text>li {
+            margin-top: 20px;
+        }
+        .double-part-section__img {
+            height: 50vh;
+        }
+    }
 }
 
 .h4-title {
     @include fontSizeLhToEm(30, 38);
     text-decoration: none;
     color: var(--black);
+    @include to(575px) {
+        font-size: 24px;
+    }
 }
 
 .contact-subtitle {
