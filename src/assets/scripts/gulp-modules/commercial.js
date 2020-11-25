@@ -27,6 +27,11 @@ function setCurrentSection(value) {
     comSlider.currentSection = value;
 }
 
+
+
+
+
+let scaleValueOnMobile = (document.documentElement.clientWidth < 575) ? 0.25 : 1;
 var controller = new ScrollMagic.Controller();
 
 // define movement of panels
@@ -38,12 +43,12 @@ comSlider.slides.forEach((el, index) => {
             offset: 0,
             duration: el.getBoundingClientRect().height
         })
-        .addIndicators() // add indicators (requires plugin)
+        //.addIndicators() // add indicators (requires plugin)
         .addTo(controller);
 
     let tl = new TimelineMax();
-    tl.fromTo(el.querySelector('*'), { skewX: -1, y: -30 }, { skewX: 1, y: 30 });
-    tl.fromTo(el.querySelector('.commercial-slide__img'), { skewX: 1, y: -30 }, { skewX: -1, y: 30 });
+    tl.fromTo(el.querySelector('*'), { skewX: -1, y: -30 * scaleValueOnMobile }, { skewX: 1, y: 30 * scaleValueOnMobile });
+    tl.fromTo(el.querySelector('.commercial-slide__img'), { skewX: 1, y: -30 * scaleValueOnMobile }, { skewX: -1, y: 30 * scaleValueOnMobile });
 
     scene.setTween(tl);
     el.sceneDuration = scene.duration();
@@ -71,7 +76,7 @@ let bigScene = new ScrollMagic.Scene({
         duration: comSlider.container.getBoundingClientRect().height
     })
     // .setTween(wipeAnimation)
-    .addIndicators() // add indicators (requires plugin)
+    //.addIndicators() // add indicators (requires plugin)
     .addTo(controller);
 
 bigScene.on('leave', () => setCurrentSection(null));
@@ -84,6 +89,7 @@ bigScene.on('progress', () => {
 
 function gotToSection(section) {
     if (section === null) return;
+    if (document.documentElement.clientWidth < 575) return;
     let offset = $(section).offset().top - (section.sceneDuration * 0.5);
     gsap.to(window, { duration: 0.5, scrollTo: { y: offset, x: 0 }, autoKill: false });
 }

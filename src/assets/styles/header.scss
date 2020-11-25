@@ -161,6 +161,14 @@
         &__link {
             display: none;
         }
+        &__link,
+        &__languages {
+            margin-right: 15px;
+        }
+        &__languages li {
+            box-shadow: 5px -1px 0px 10px var(--white);
+            background-color: var(--white);
+        }
         &__logo {
             width: 75px;
         }
