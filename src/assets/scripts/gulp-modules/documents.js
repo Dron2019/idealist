@@ -202,5 +202,5 @@ var ssb = {
 }
 
 window.onload = function() {
-    ssb.scrollbar('docs-wrapper'); // scrollbar initialization
+    if (document.documentElement.clientWidth > 575) ssb.scrollbar('docs-wrapper'); // scrollbar initialization
 }

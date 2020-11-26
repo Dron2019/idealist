@@ -1,0 +1,117 @@
+#infrastructure {
+    padding-top: var(--header-height);
+    .page__content {
+        position: relative;
+        padding-left: var(--side-fields);
+        padding-right: var(--side-fields);
+        height: calc(100vh - var(--header-height));
+        padding-bottom: 50px;
+        overflow: hidden;
+    }
+    .markers-wrapper {
+        @include size(2)
+    }
+    .double-part-section__img {
+        @include size(10);
+        height: calc(100% - 50px);
+    }
+    .double-part-section {
+        margin-top: 35px;
+        align-items: flex-start;
+        padding-left: 0;
+    }
+    #map {
+        width: 100%;
+        height: 100%;
+        height: calc(100% - 50px);
+    }
+    @include to(1250px) {
+        .markers-wrapper {
+            @include size(3)
+        }
+        .double-part-section__img {
+            @include size(9);
+        }
+    }
+    @include from(950px) {
+        .fixed-footer {
+            @include shift-padding-left(2.5);
+        }
+    }
+    @include to(575px) {
+        .h4-title {
+            margin-top: 20px;
+        }
+        .page__content {
+            height: auto;
+            padding-bottom: 0;
+        }
+        .double-part-section {
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .markers-wrapper {
+            width: 100%;
+        }
+        .double-part-section__img {
+            height: 50vh;
+            margin-top: 20px;
+            width: calc(100% + (var(--side-fields) * 2));
+            margin-right: calc(var(--side-fields) * -1);
+            margin-left: calc(var(--side-fields) * -1);
+        }
+        #map {
+            height: 100%;
+        }
+    }
+}
+
+.markers-wrapper {
+    display: flex;
+    flex-direction: column;
+    &__item {
+        height: 38px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-left: 36px;
+        transition: .3s ease-out;
+        img {
+            margin-right: 22px;
+            transition: .3s ease-out;
+        }
+    }
+    &__item.active {
+        background-color: var(--orange);
+        color: var(--white);
+        img {
+            filter: brightness(2);
+        }
+    }
+    img {
+        width: 18px;
+        height: 18px;
+    }
+    @include to(768px) {
+        &__item {
+            padding-left: 18px;
+        }
+    }
+    @include to(575px) {
+        column-count: 2;
+        display: block;
+        &__item {
+            padding-left: 5px;
+        }
+        &__item img {
+            margin-right: 7px;
+        }
+    }
+}
+
+.pattern-bg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+}

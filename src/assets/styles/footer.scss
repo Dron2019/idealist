@@ -324,5 +324,13 @@
         &__tel-text {
             display: none;
         }
+        &__scroll-icon {
+            width: 7.5px;
+            height: 17px;
+            margin-left: 10px;
+        }
+        &__scroll-text {
+            font-size: 10px;
+        }
     }
 }

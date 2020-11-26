@@ -206,8 +206,11 @@ function changeCurrentValue(selector) {
         select.addEventListener('click', () => {
             selector.querySelectorAll('.custom-select__item').forEach(el => el.classList.remove('custom-select__item-current'))
             select.classList.add('custom-select__item-current');
-            selector.currentValue = select.dataset.value;
-            selector.dispatchEvent(event);
+            if (selector.currentValue !== select.dataset.value) {
+                selector.currentValue = select.dataset.value;
+                selector.dispatchEvent(event);
+
+            }
             // console.log(selector.currentValue);
         })
     });

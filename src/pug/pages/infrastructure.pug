@@ -1,0 +1,41 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "infrastructure";
+block meta
+    title= 'Idealist Инфраструктура'
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/libs.js")
+    script(defer src="./assets/scripts/menu.js")
+    script(defer src="./assets/scripts/infrastructure.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    h1.h4-title Объекты ифраструктуры
+    .double-part-section
+        +img('infrastructure/pattern.svg').pattern-bg
+        -
+            var navMarkers = [
+               [ './assets/images/infrastructure/sale.svg','Отдел продаж'],
+               [ './assets/images/infrastructure/build.svg','Больница'],
+               [ './assets/images/infrastructure/gym.svg','Спорт'],
+               [ './assets/images/infrastructure/letter.svg','Почта'],
+               [ './assets/images/infrastructure/mall.svg','ТЦ'],
+               [ './assets/images/infrastructure/marketplace.svg','Рынок'],
+               [ './assets/images/infrastructure/park.svg','Парк'],
+               [ './assets/images/infrastructure/pharmacy.svg','Аптека'],
+               [ './assets/images/infrastructure/shops.svg','Магазины'],
+               [ './assets/images/infrastructure/stadium.svg','Стадион'],
+               [ './assets/images/infrastructure/supermarket.svg','Маркеты'],
+               [ './assets/images/infrastructure/train.svg','ЖД вокзал'],
+            ];
+        .markers-wrapper
+            each val in navMarkers
+                .markers-wrapper__item(data-category=val[0].split('/')[4].replace(/.svg/,''))
+                    img(src=val[0] data-category=val[0].split('/')[4].replace(/.svg/,'')) 
+                    span #{val[1]}
+        .double-part-section__img
+            #map 
+block footer
+block header
