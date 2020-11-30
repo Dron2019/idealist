@@ -974,6 +974,11 @@
             // border: 1px solid blue;
         }
     }
+    @include from-to(575px, 768px) {
+        &__left {
+            padding-left: 0;
+        }
+    }
     @include to(575px) {
         padding-bottom: 40px;
         &__left {
@@ -1023,6 +1028,11 @@
         width: 50%;
         margin-top: 80px;
         margin-bottom: 80px;
+    }
+    @include from-to(575px, 768px) {
+        &__title {
+            font-size: 48px;
+        }
     }
 }
 
@@ -1128,6 +1138,11 @@
         grid-template-rows: repeat(12, calc(80px));
         grid-column-gap: 10px;
         grid-row-gap: 10px;
+        .video-play-button {
+            grid-area: 2/3/2/5;
+            justify-self: end;
+            min-height: auto !important;
+        }
     }
     @include to(950px) {
         padding-top: 85px;

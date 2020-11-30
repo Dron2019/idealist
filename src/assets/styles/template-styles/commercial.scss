@@ -240,6 +240,13 @@
         background-repeat: no-repeat;
         margin-right: 15px;
     }
+    @include from-to(575px,
+    768px) {
+        min-height: auto;
+        // &__content {
+        //     max-height: 65vh;
+        // }
+    }
     @include to(575px) {
         min-height: auto;
         &__content {

@@ -1,6 +1,7 @@
 /* beautify preserve:start */
 @@include('../libs/ScrollMagic/scrollmagic/minified/ScrollMagic.min.js')
 @@include('../libs/ScrollMagic/scrollmagic/minified/plugins/debug.addIndicators.min.js')
+@@include('../libs/scroll/scroll.js')
 /**https://mattboldt.com/demos/typed-js/ */
 @@include('../../../../node_modules/typed.js/lib/typed.min.js')
 /* beautify preserve:end */
@@ -334,3 +335,8 @@ infraBlocksWithImages.forEach(el => {
 
 
 /**Infra block glitches handler END */
+
+document.addEventListener('freeze', (event) => {
+    // The page is now frozen.
+    console.log(event);
+});

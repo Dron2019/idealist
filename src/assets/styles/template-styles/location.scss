@@ -76,6 +76,8 @@
     }
     @include to(768px) {
         width: 100%;
+        margin-left: 0;
+        margin-right: 0;
         @include shift-padding(1);
     }
     @include to(575px) {
