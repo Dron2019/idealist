@@ -36,5 +36,7 @@ function videoAboutHandler() {
         arrow.querySelector('.pause').style.opacity = '0';
         arrow.querySelector('.progress-indecator').style.clipPath = 'polygon(0 0, 0% 0, 0% 0%, 0% 0%)';
     });
-
+    video.addEventListener('error', (e) => {
+        alert(e)
+    })
 }

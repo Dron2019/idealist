@@ -1,4 +1,7 @@
-/**fixed footer handler */
+/* beautify preserve:start */
+@@include('../libs/headroom/headroom.js')
+/* beautify preserve:end */
+    /**fixed footer handler */
 
 const fixedFooter = document.querySelector('.fixed-footer');
 
@@ -33,7 +36,7 @@ let headerThemes = ['light', 'dark'];
 
 function switchTheme(elem, theme) {
     headerThemes.forEach(el => elem.classList.remove(el));
-    elem.classList.add(theme);
+    // elem.classList.add(theme);
 }
 
 function headerMenuButtonAnimate(event) {
@@ -62,7 +65,7 @@ function menuOpeningHandler(menu) {
         tl.fromTo('.top-menu__right', { y: '100%' }, { y: '0' }, '<');
         tl.fromTo('.top-menu__group', { y: 50, autoAlpha: 0.5 }, { y: 0, ease: Power4.easeOut, autoAlpha: 1, duration: 1, stagger: 0.2 }, '-=0.5')
     } else {
-        switchTheme(header, headerThemes[1]);
+        switchTheme(header, headerThemes[0]);
     }
 }
 
@@ -110,8 +113,10 @@ document.querySelectorAll('.watch-more__block').forEach(el => {
 
 //светлый хедер
 
-var whiteHeader = ['build-progress', 'video-about', 'gallery'];
-if (whiteHeader.includes(document.querySelector('.page__inner').getAttribute('id')) && document.documentElement.clientWidth > 575) {
+var whiteHeader = ['build-progress', 'video-about', 'gallery', 'index'];
+var pageId = document.querySelector('.page__inner').getAttribute('id');
+
+if (whiteHeader.includes(pageId) && document.documentElement.clientWidth > 575) {
     header.classList.add('light');
     window.addEventListener('scroll', function(evt) {
         if (document.documentElement.scrollTop > document.documentElement.clientHeight * 0.8) {
@@ -140,3 +145,7 @@ function dqsA(selector) {
     return document.querySelectorAll(selector);
 }
 /**Мобильный перенос елементов END */
+
+
+/**Скрытие Хедера при скролле вниз */
+new Headroom(header, { offset: 500, }).init();

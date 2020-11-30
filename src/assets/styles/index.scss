@@ -30,7 +30,7 @@
     @include to(575px) {
         --side-fields: 14px;
         --side-padding: 14px;
-        --header-height: 50px;
+        --header-height: 52px;
     }
 }
 
@@ -1015,8 +1015,9 @@
         white-space: pre;
     }
     &__title {
-        min-height: 1em;
+        min-height: calc(1.07143em * 2);
         margin-top: 30px;
+        max-width: 80%;
     }
     .delimiter {
         width: 50%;

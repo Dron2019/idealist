@@ -142,4 +142,9 @@ var screen1 = document.querySelector('.js-facilities-screen1');
 var headerHeight = document.querySelector('.header').getBoundingClientRect().height;
 var footerFixedHeight = document.querySelector('.fixed-footer').getBoundingClientRect().height;
 var textBlockHeight = screen1.querySelector('.double-part-section__text').getBoundingClientRect().height;
-screen1.querySelector('picture').style.height = (document.documentElement.clientHeight - textBlockHeight - headerHeight) + 'px';
+
+
+if (document.documentElement.clientWidth < 576) {
+
+    screen1.querySelector('picture').style.height = (document.documentElement.clientHeight - textBlockHeight - headerHeight) + 'px';
+}

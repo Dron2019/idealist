@@ -18,9 +18,12 @@ $('.location-vert-slider').on('afterChange', () => {
 
 
 /**mobile elements moving */
-var sticker = document.querySelector('.location-sticker');
-document.querySelector('.double-part-section').insertAdjacentElement('beforeend', sticker);
 
-document.querySelector('.double-part-section').style.paddingBottom = sticker.getBoundingClientRect().height + 'px';
-document.querySelector('.double-part-section').style.position = 'relative';
+if (document.documentElement.clientWidth < 576) {
+
+    var sticker = document.querySelector('.location-sticker');
+    document.querySelector('.double-part-section').insertAdjacentElement('beforeend', sticker);
+    document.querySelector('.double-part-section').style.paddingBottom = sticker.getBoundingClientRect().height + 'px';
+    document.querySelector('.double-part-section').style.position = 'relative';
+}
 /**mobile elements moving END */

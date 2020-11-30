@@ -1025,6 +1025,8 @@ form.disabled {
     letter-spacing: 0.18em;
     position: relative;
     text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
     &:before {
         content: attr(data-before);
         position: relative;

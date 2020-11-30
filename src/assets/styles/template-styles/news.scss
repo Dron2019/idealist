@@ -24,6 +24,11 @@
         margin-top: 50px;
         align-items: center;
     }
+    @include from(769px) {
+        .news-top-row {
+            margin-top: 50px;
+        }
+    }
     @include to(950px) {
         .page__content {
             padding-left: var(--side-fields);

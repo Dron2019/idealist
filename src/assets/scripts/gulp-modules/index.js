@@ -38,6 +38,21 @@ msSlider.on('afterChange', () => {
 
 
 
+window.addEventListener('preloaderOff', function(evt) {
+    handleMsGlitch('on');
+    console.log('off');
+    document.querySelector('.main-screen__slider').classList.add('glitched-title')
+    setTimeout(() => {
+        handleMsGlitch('off');
+
+    }, 750);
+    setTimeout(() => {
+
+        document.querySelector('.main-screen__slider').classList.remove('glitched-title')
+    }, 1250);
+});
+
+
 
 arrow.__proto__.hide = function() {
     this.style.opacity = "0";
@@ -168,12 +183,18 @@ function mainScreenFixedSliderEffects() {
     var scrollContainer = document.querySelector('.js-scrolling-screen');
     var fixedSlider = document.querySelector('.scroller-slide-fixed');
     let scrollSlides = Array.from(document.querySelectorAll('.scrolling-screen-slide'));
+
+
     scrollSlides.forEach((slide, index) => {
         var tempScene = new ScrollMagic.Scene({
             duration: slide.getBoundingClientRect().height,
             triggerElement: slide,
             triggerHook: 0.5
         }).addIndicators();
+
+
+        gsap.set(slide.querySelector('img'), { y: 50, autoAlpha: 0.5 })
+        gsap.set(slide.querySelector('.scrolling-screen-slide__text-block'), { y: 100, autoAlpha: 0.5 })
         controller.addScene(tempScene);
         tempScene.on("enter", function(event) {
             document.querySelector('.js-scroller-slides-current').innerHTML = index + 1;
@@ -183,8 +204,13 @@ function mainScreenFixedSliderEffects() {
                 strings: ['', slide.querySelector('.scrolling-screen-slide__title').innerText],
                 typeSpeed: 20
             });
-            // document.querySelector('.scrolling-screen__left .title').innerHTML = Math.random() + index + 1
+            if (slide.querySelector('img').wasEffect !== true) {
+                slide.querySelector('img').wasEffect = true;
+                gsap.fromTo(slide.querySelector('img'), { autoAlpha: 0.5, y: 50 }, { autoAlpha: 1, y: 0 })
+                gsap.fromTo(slide.querySelector('.scrolling-screen-slide__text-block'), { autoAlpha: 0.5, y: 100 }, { autoAlpha: 1, y: 0 })
+            }
         });
+
         scrollContainer.style.height = scrollSlides.length * slide.getBoundingClientRect().height + 'px';
     });
 
@@ -197,8 +223,10 @@ function mainScreenFixedSliderEffects() {
     controller.addScene(scrollScene);
 
     scrollScene.addIndicators()
-    scrollScene.on("enter", function(event) {
+    scrollScene.on("enter", function(event, target) {
+
         document.querySelector('.js-scrolling-screen').scrollIntoView();
+
     });
 }
 if (document.documentElement.clientWidth > 575) mainScreenFixedSliderEffects();

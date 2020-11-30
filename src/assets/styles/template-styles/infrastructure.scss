@@ -34,9 +34,9 @@
         }
     }
     @include from(950px) {
-        .fixed-footer {
-            @include shift-padding-left(2.5);
-        }
+        // .fixed-footer {
+        //     @include shift-padding-left(2.5);
+        // }
     }
     @include to(575px) {
         .h4-title {

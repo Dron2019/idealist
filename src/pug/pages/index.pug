@@ -1,7 +1,7 @@
 extends ../layout/main
 block variable
 	- var version = "ua";
-	
+	- var pageName = "index";
 block meta
 	title= 'IDEALIST Club Residence'
 	meta(name='description', content='')
@@ -73,7 +73,7 @@ block content
 						</svg>
 					.scrolling-screen-slide__title 5 мин до чего-то
 					.scrolling-screen-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
-					.scrolling-screen-slide__btn.button-std(data-before="Подробнее")
+					a(href="location.html" data-before="Подробнее").scrolling-screen-slide__btn.button-std
 			.scrolling-screen-slide.js-scrolling-screen-slide 
 				img.scrolling-screen-slide__image(src="./assets/images/index/scroll-slide2.jpg")
 				.scrolling-screen-slide__text-block(style="margin-left: calc(100% / 7 * 2);")
@@ -84,7 +84,7 @@ block content
 						</svg>
 					.scrolling-screen-slide__title 10 мин до чего-то
 					.scrolling-screen-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
-					.scrolling-screen-slide__btn.button-std(data-before="Подробнее")
+					a(href="location.html" data-before="Подробнее").scrolling-screen-slide__btn.button-std
 			.scrolling-screen-slide.js-scrolling-screen-slide 
 				img.scrolling-screen-slide__image(src="./assets/images/index/scroll-slide3.jpg")
 				.scrolling-screen-slide__text-block(style="margin-left: calc(100% / -7);")
@@ -95,7 +95,7 @@ block content
 						</svg>
 					.scrolling-screen-slide__title 15 мин до чего-то
 					.scrolling-screen-slide__text Перший екран займає візуальне оформлення сторінки, яке дає змогу з першого погляду отримати емоційне відчуття цього комплексу. 
-					.scrolling-screen-slide__btn.button-std(data-before="Подробнее")
+					a(href="location.html" data-before="Подробнее").scrolling-screen-slide__btn.button-std
 	section.js-horisontal-scroll.horisontal-scroll-section
 		<svg class="scroll-element-js" width="1629" height="248" viewBox="0 0 1629 248" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M18.3738 247.236H68.9016V123.631H50.5278V0.0258789H0V123.631H18.3738V247.236Z" fill="#EB8271"/>
@@ -108,7 +108,7 @@ block content
 			<path d="M1629 45.7506V0.0250244H1420V45.7506H1499.13V123.63H1517.5V247.235H1568.03V123.63H1549.66V45.7506H1629Z" fill="#EB8271"/>
 			</svg>
 	section.infra-block
-		.video-play-button
+		a(href="video-about.html").video-play-button
 			+svg('cinema')
 		.infra-block-part.infra-block-park.bottom-align 
 			.infra-block-part__img.glitch.glitch--style-1

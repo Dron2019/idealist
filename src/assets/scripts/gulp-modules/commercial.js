@@ -52,9 +52,13 @@ comSlider.slides.forEach((el, index) => {
 
     scene.setTween(tl);
     el.sceneDuration = scene.duration();
-    scene.on('enter', function() {
+    scene.on('enter', function(event) {
         // gsap.fromTo(el, { y: 50, autoAlpha: 0.5 }, { y: 0, autoAlpha: 1 });
-        setCurrentSection(el);
+        console.log(event);
+        if (event.scrollDirection === 'FORWARD') {
+
+            setCurrentSection(el);
+        }
         console.log();
 
 

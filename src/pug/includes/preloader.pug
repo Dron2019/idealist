@@ -198,26 +198,68 @@
             //- opacity:1;}
         }
     script.
-        window.addEventListener('load', () => {
-            document.querySelector('.preloader').style.opacity = '0';
-            document.querySelector('.preloader').style.pointerEvents = 'none';
-        })
-        window.addEventListener('beforeunload', () => {
-            document.querySelector('.preloader').style.transition = '0';
-            document.querySelector('.preloader').style.opacity = '1';
-            document.querySelector('.preloader').style.pointerEvents = 'none';
-        });
-        function animNumber(el) {
-            var incrementor = 0;
-            function increase(incrementor) {
-            setTimeout(() => {
-                incrementor++;
-                el.innerHTML = incrementor;
-                if (incrementor>=100)  {return};
-                window.requestAnimationFrame(increase.bind(null,incrementor));
-                
-            }, 1000/60);
+            if (sessionStorage.getItem('preloading') !== null) {
+                window.animationFinished = true;
+            }else {
+                sessionStorage.setItem('preloading',true)
             }
-            increase(incrementor);
-        }
-        animNumber(document.querySelector('.preload-num'));
+            function preloader(preloaderSelector) {
+                element = document.querySelectorAll(preloaderSelector)[0];
+                element.style.cssText = `animation:fadeIn 1s 1 linear`;
+                element.style.animationDirection = `reverse`;
+                element.addEventListener('animationend', () => {
+                    // element.style.display = `none`;
+                });
+
+            };
+            let preloaderLogo = document.querySelector('.preloader-logo-js'),
+                preloaderCounterValue = document.querySelector('.preload-num');
+            increaseAnimation.call(preloaderCounterValue, preloaderCounterValue, 100, undefined, function(){ window.animationFinished = true;});
+            function preloader(preloaderSelector) {
+                element = document.querySelectorAll(preloaderSelector)[0];
+                // element.style.cssText = `animation:fadeIn 1s 1 linear`;
+                element.style.animationDirection = `reverse`;
+                element.addEventListener('animationend', () => {
+                    // element.style.opacity = `0`; 
+                    
+                });
+            };
+
+
+            let preloaderListener = setInterval(function(){
+                let arr = [window.animationFinished,window.pageLoaded];
+                if(!arr.includes(undefined)){
+                    setTimeout(() => {
+                        document.querySelector('.preloader-js').style.opacity = `0`;
+                        window.dispatchEvent(new Event('preloaderOff'))
+                    }, 500);
+                    clearInterval(preloaderListener);
+                    }
+            
+                console.log(window.animationFinished,window.pageLoaded);
+                
+            }, 500);
+            function increaseAnimation(element, digit, recursion,finishCallback) {
+
+                if (digit == undefined) {
+                    this.digitLastNumber = +element.innerHTML;
+                    this.digit = 0;
+                } else if (recursion == undefined) {
+                    this.digitLastNumber = digit;
+                    this.digit = 0;
+                }
+                element.innerHTML = this.digit;
+                this.digit++;
+
+                if (this.digit <= this.digitLastNumber) {
+                window.requestAnimationFrame(increaseAnimation.bind(element, element, this.digit, true, finishCallback));
+                } else {
+                    this.digit = undefined;
+                    if (typeof finishCallback === 'function') finishCallback();
+                    return;
+                }
+            }
+            window.addEventListener('load',function(evt){
+                window.pageLoaded = true;
+                    preloader('.preloader-js');
+            });
