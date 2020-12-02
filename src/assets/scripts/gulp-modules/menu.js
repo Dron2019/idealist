@@ -3,6 +3,44 @@
 /* beautify preserve:end */
     /**fixed footer handler */
 
+
+
+/**
+ * 
+ * std function
+ * 
+ */
+
+
+
+const throttle = (func, limit) => {
+    let inThrottle
+    return function() {
+        const args = arguments
+        const context = this
+        if (!inThrottle) {
+            func.apply(context, args)
+            inThrottle = true
+            setTimeout(() => inThrottle = false, limit)
+        }
+    }
+}
+
+function showHeadMouseHandle(evt) {
+    if (evt.clientY > 150) {
+        header.classList.add('headroom--pinned');
+        header.classList.remove('headroom--unpinned');
+    } else {
+        header.classList.remove('headroom--pinned');
+        header.classList.add('headroom--unpinned');
+    }
+}
+let showHeadMouseHandleTrottled = throttle(showHeadMouseHandle, 1000);
+
+
+
+
+
 const fixedFooter = document.querySelector('.fixed-footer');
 
 function fixedFooterTranslateOnPageBottom() {
@@ -150,3 +188,8 @@ function dqsA(selector) {
 
 /**Скрытие Хедера при скролле вниз */
 new Headroom(header, { offset: 500, }).init();
+
+document.body.addEventListener('mousemove', (evt) => {
+    if (evt.clientY > 200) return;
+    showHeadMouseHandleTrottled(evt)
+})
