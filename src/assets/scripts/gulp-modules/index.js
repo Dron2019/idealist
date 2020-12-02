@@ -1,6 +1,7 @@
 /* beautify preserve:start */
 @@include('../libs/ScrollMagic/scrollmagic/minified/ScrollMagic.min.js')
 @@include('../libs/ScrollMagic/scrollmagic/minified/plugins/debug.addIndicators.min.js')
+@@include('../libs/ScrollMagic/scrollmagic/minified/plugins/animation.gsap.min.js')
 @@include('../libs/scroll/scroll.js')
 /**https://mattboldt.com/demos/typed-js/ */
 @@include('../../../../node_modules/typed.js/lib/typed.min.js')
@@ -184,6 +185,8 @@ function mainScreenFixedSliderEffects() {
     var scrollContainer = document.querySelector('.js-scrolling-screen');
     var fixedSlider = document.querySelector('.scroller-slide-fixed');
     let scrollSlides = Array.from(document.querySelectorAll('.scrolling-screen-slide'));
+    let delimiter = document.querySelector('.js-scroller-slide-fixed .delimiter');
+    let currentSlideView = document.querySelector('.js-scroller-slides-current');
 
 
     scrollSlides.forEach((slide, index) => {
@@ -191,25 +194,38 @@ function mainScreenFixedSliderEffects() {
             duration: slide.getBoundingClientRect().height,
             triggerElement: slide,
             triggerHook: 0.5
-        }).addIndicators();
+        }) /*.addIndicators()*/ ;
+        let slideImg = slide.querySelector('img'),
+            slideText = slide.querySelector('.scrolling-screen-slide__text-block');
 
+        gsap.set(slideImg, { y: 50, autoAlpha: 0.5 });
+        gsap.set(slideText, { y: 100, autoAlpha: 0.5 });
 
-        gsap.set(slide.querySelector('img'), { y: 50, autoAlpha: 0.5 })
-        gsap.set(slide.querySelector('.scrolling-screen-slide__text-block'), { y: 100, autoAlpha: 0.5 })
+        let tl = new TimelineMax();
+        tl.fromTo(slideImg, { y: 0 }, { y: 30 });
+        tl.fromTo(slideText, { y: 0 }, { y: -50 });
+        tempScene.setTween(tl);
+
         controller.addScene(tempScene);
         tempScene.on("enter", function(event) {
-            document.querySelector('.js-scroller-slides-current').innerHTML = index + 1;
+            currentSlideView.innerHTML = index + 1;
+
             //еффект печати текста
             new Typed(fixedSlider.querySelector('.title'), {
                 showCursor: false,
                 strings: ['', slide.querySelector('.scrolling-screen-slide__title').innerText],
                 typeSpeed: 20
             });
-            if (slide.querySelector('img').wasEffect !== true) {
-                slide.querySelector('img').wasEffect = true;
-                gsap.fromTo(slide.querySelector('img'), { autoAlpha: 0.5, y: 50 }, { autoAlpha: 1, y: 0 })
-                gsap.fromTo(slide.querySelector('.scrolling-screen-slide__text-block'), { autoAlpha: 0.5, y: 100 }, { autoAlpha: 1, y: 0 })
+
+            //Одноразовій запуск появления
+            if (slideImg.wasEffect !== true) {
+                slideImg.wasEffect = true;
+                gsap.fromTo(slideImg, { autoAlpha: 0.5, y: 50 }, { autoAlpha: 1, y: 0 })
+                gsap.fromTo(slideText, { autoAlpha: 0.5, y: 100 }, { autoAlpha: 1, y: 0 })
             }
+            tempScene.on('progress', (evt) => {
+                delimiter.style.transform = `scaleX(${evt.progress})`
+            })
         });
 
         scrollContainer.style.height = scrollSlides.length * slide.getBoundingClientRect().height + 'px';
@@ -223,7 +239,7 @@ function mainScreenFixedSliderEffects() {
     }).setPin('.scrolling-screen__left');
     controller.addScene(scrollScene);
 
-    scrollScene.addIndicators()
+    // scrollScene.addIndicators()
     scrollScene.on("enter", function(event, target) {
 
         document.querySelector('.js-scrolling-screen').scrollIntoView();
@@ -241,7 +257,7 @@ class Scroller {
         this.selectorName = selector;
         this.scrollElement = document.querySelector(selector);
         this.i = 1;
-        this.delta = 5;
+        this.delta = 1;
         this.lastScrollTop = 0;
         this.speed = 10;
 
@@ -252,7 +268,8 @@ class Scroller {
     styling() {
         this.moveValue = window.screen.height * this.delta / parseInt(getComputedStyle(this.scrollElement).width.replace('px', '')) * this.speed;
         this.elemHeight = parseInt(getComputedStyle(this.scrollElement).blockSize);
-        this.scrollElement.style.transition = '.8s';
+        // this.scrollElement.style.transition = '.8s';
+        this.scrollElement.style.transition = 'none';
     }
     onScroll(e) {
         var top = window.pageYOffset;
@@ -286,7 +303,7 @@ class Scroller {
                 this.scrollElement.getBoundingClientRect().bottom < window.screen.height) {
                 this.moving(this.onScroll());
             } else {
-                this.resetPosition();
+                // this.resetPosition();
             }
 
         });
@@ -340,3 +357,36 @@ document.addEventListener('freeze', (event) => {
     // The page is now frozen.
     console.log(event);
 });
+
+
+
+
+function getBetweenDistance(elem1, elem2, eachSideDistance) {
+    // get the bounding rectangles
+    var el1 = elem1.getBoundingClientRect();
+    var el2 = elem2.getBoundingClientRect();
+
+    // get div1's center point
+    var div1x = el1.left + el1.width / 2;
+    var div1y = el1.top + el1.height / 2;
+
+    // get div2's center point
+    var div2x = el2.left + el2.width / 2;
+    var div2y = el2.top + el2.height / 2;
+
+    // calculate the distance using the Pythagorean Theorem (a^2 + b^2 = c^2)
+    var distanceSquared = Math.pow(div1x - div2x, 2) + Math.pow(div1y - div2y, 2);
+    var distance = Math.sqrt(distanceSquared);
+
+    console.log(Math.abs(div1x - div2x), 'X');
+    console.log(Math.abs(div1y - div2y), 'Y');
+
+    const speed = 0.5;
+    let tl = gsap.timeline({ ease: Power4.easeInOut });
+
+    tl.to(elem2, { x: div1x - div2x, duration: speed })
+    tl.to(elem2, { y: div1y - div2y, duration: speed / 2 }, `-=${speed/2}`)
+    tl.set(elem2, { x: 0, y: 0 })
+    console.log(div2x, 'X2');
+    return distance;
+}

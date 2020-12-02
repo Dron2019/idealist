@@ -967,7 +967,7 @@ header.headroom {
             top: 75px;
         }
     }
-    &.headroom--not-top.headroom--unpinned {
+    &.headroom--not-top.headroom--unpinned:not(.opened) {
         transform: translateY(-100%) !important;
         overflow: hidden;
     }
@@ -1030,6 +1030,7 @@ header.headroom {
         36);
         color: var(--very-gray);
         text-decoration: none;
+        transition: .3s ease-out;
     }
     &__group {
         @include size(6);
@@ -1153,6 +1154,11 @@ header.headroom {
         &__bottom-link {}
         &__bottom-tel {
             font-size: 14px;
+        }
+    }
+    @include from(768px) {
+        &__link:hover {
+            color: var(--orange);
         }
     }
 }

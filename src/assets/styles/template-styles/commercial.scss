@@ -240,6 +240,11 @@
         background-repeat: no-repeat;
         margin-right: 15px;
     }
+    @include from(768px) {
+        &__content {
+            max-height: 75vh;
+        }
+    }
     @include from-to(575px,
     768px) {
         min-height: auto;

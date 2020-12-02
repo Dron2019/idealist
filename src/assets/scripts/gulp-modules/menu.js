@@ -58,6 +58,7 @@ function headerMenuButtonAnimate(event) {
 
 function menuOpeningHandler(menu) {
     menu.classList.toggle("opened");
+    header.classList.toggle('opened');
     if (menu.classList.contains('opened')) {
         switchTheme(header, headerThemes[1]);
         let tl = new TimelineLite();

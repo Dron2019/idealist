@@ -72,9 +72,15 @@ class Smooth {
         addEvent('keyup', false);
     }
 };
-var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-var body = new Smooth({ ignore: '.map4' });
-body.key();
+
+
+
+if ((/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) === false) {
+
+    var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+    var body = new Smooth({ ignore: '.map4' });
+    body.key();
+}
 
 function preventDefault(e) {
     e = e || window.event;

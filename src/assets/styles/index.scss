@@ -1028,6 +1028,7 @@
         width: 50%;
         margin-top: 80px;
         margin-bottom: 80px;
+        transform-origin: left;
     }
     @include from-to(575px, 768px) {
         &__title {
@@ -1105,7 +1106,8 @@
     z-index: 2;
     .scroll-element-js {
         position: relative;
-        left: 50vw;
+        // left: 50vw;
+        left: 0;
     }
     @include to(950px) {
         height: 50vh;

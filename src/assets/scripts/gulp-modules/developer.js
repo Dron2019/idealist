@@ -6,8 +6,52 @@
 /**https://mattboldt.com/demos/typed-js/ */
 @@include('../../../../node_modules/typed.js/lib/typed.min.js')
 /* beautify preserve:end */
-    /**SCREEN 2 SCroll Slider  */
-    // basic initialization
+    //Standart funcitons
+
+
+function changeInnerHTML(el, text) {
+    el.innerHTML = text;
+}
+
+function changeTextTypedEffect(el, text) {
+    return new Typed(el, {
+        showCursor: false,
+        strings: ['', text],
+        typeSpeed: 20
+    });
+}
+
+function gsapScrollToEl(el) {
+    gsap.to(window, { duration: 1, scrollTo: el, autoKill: false });
+}
+let changeTextTypedEffectDebounced = debounce(changeTextTypedEffect, 1000);
+let changeInnerHTMLDebounced = debounce(changeInnerHTML, 0);
+let gsapScrollToElDebounced = debounce(gsapScrollToEl, 1500);
+
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this,
+            args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+//Standart funcitons END
+
+
+
+
+
+/**SCREEN 2 SCroll Slider  */
+// basic initialization
 var controller = new ScrollMagic.Controller();
 var scrollContainer = document.querySelector('.other-project-wrapper');
 var fixedSlider = document.querySelector('.js-other-project-wrapper__right')
@@ -29,16 +73,14 @@ scrollSlides.forEach((slide, index) => {
 
     tempScene.setTween(tl);
     tempScene.on("enter", function(event) {
-        document.querySelector('.js-other-projects-counter .slider-counter-type2__current').innerHTML = index + 1;
-        new Typed(document.querySelector('.js-other-project-wrapper__right .title'), {
-            showCursor: false,
-            strings: ['', slide.dataset.title],
-            typeSpeed: 20
-        });
+
+        changeTextTypedEffectDebounced(document.querySelector('.js-other-project-wrapper__right .title'), slide.dataset.title);
+        changeInnerHTMLDebounced(document.querySelector('.js-other-projects-counter .slider-counter-type2__current'), index + 1);
+        gsapScrollToElDebounced(slide.querySelector('.glitch'));
         /**Отключение автоматического центрирования при быстром скролле */
         if (new Date().getTime() - window.lastSceneEntering > 1500) {
+            // gsap.to(window, { duration: 1, scrollTo: slide.querySelector('.glitch'), autoKill: false });
             console.log('ss');
-            gsap.to(window, { duration: 1, scrollTo: slide.querySelector('.glitch'), autoKill: false });
         };
         window.lastSceneEntering = new Date().getTime()
             /**Отключение автоматического центрирования при быстром скролле END */
@@ -79,4 +121,5 @@ scrollScene.on("progress", function(event) {
     //     fixedSlider.style.transform = `scale(${1})`;
     // }
 });
+
 /**SCREEN 2 SCroll Slider end   */

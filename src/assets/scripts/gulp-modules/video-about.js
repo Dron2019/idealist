@@ -18,7 +18,9 @@ function videoAboutHandler() {
         gsap.to(arrow, { y: document.documentElement.clientHeight - arrow.getBoundingClientRect().bottom - arrow.getBoundingClientRect().height });
         arrow.querySelector('.play').style.opacity = '0';
         arrow.querySelector('.pause').style.opacity = '1';
-        video.play()
+        // video.play();
+        playVideo(video);
+        // alert(video.paused)
     } else {
         clearInterval(interval);
         arrow.style.transform = `translate(-50%,-50%)`;
@@ -37,6 +39,17 @@ function videoAboutHandler() {
         arrow.querySelector('.progress-indecator').style.clipPath = 'polygon(0 0, 0% 0, 0% 0%, 0% 0%)';
     });
     video.addEventListener('error', (e) => {
-        alert(e)
+
     })
+}
+
+
+
+function playVideo(video) {
+    try {
+        video.play();
+        video.classList.add("playing");
+    } catch (err) {
+        video.classList.remove("playing");
+    }
 }
