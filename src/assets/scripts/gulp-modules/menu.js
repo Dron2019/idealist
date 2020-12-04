@@ -27,15 +27,12 @@ const throttle = (func, limit) => {
 }
 
 function showHeadMouseHandle(evt) {
-    if (evt.clientY > 150) {
-        header.classList.add('headroom--pinned');
-        header.classList.remove('headroom--unpinned');
-    } else {
-        header.classList.remove('headroom--pinned');
-        header.classList.add('headroom--unpinned');
-    }
+
+    header.classList.add('headroom--pinned');
+    header.classList.remove('headroom--unpinned');
+
 }
-let showHeadMouseHandleTrottled = throttle(showHeadMouseHandle, 1000);
+let showHeadMouseHandleTrottled = throttle(showHeadMouseHandle, 500);
 
 
 
@@ -190,6 +187,6 @@ function dqsA(selector) {
 new Headroom(header, { offset: 500, }).init();
 
 document.body.addEventListener('mousemove', (evt) => {
-    if (evt.clientY > 200) return;
+    if (evt.clientY > 350) return;
     showHeadMouseHandleTrottled(evt)
 })

@@ -17,6 +17,7 @@ const mediumCordValue = document.documentElement.clientWidth / 2;
 const headBlockYCordValue = 100;
 const arrow = document.querySelector(".arrow");
 const mainScreen = document.querySelector('.main-screen');
+const mainScreenImgShowBlock = document.querySelector('.js-main-screen-slider-img-container');
 $(".main-screen__slider").on('init', function() {
     calcButtonPosition(arrow);
 })
@@ -30,11 +31,18 @@ let msSlider = $(".main-screen__slider").slick({
     easing: 'ease-out',
 });
 
-msSlider.on('beforeChange', () => {
+
+
+
+msSlider.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
     handleMsGlitch('on');
+    // console.log(slick);
+    // console.log(nextSlide);
+    switchGlitchBlockImg(mainScreenImgShowBlock, slick.$slides[nextSlide].dataset.img)
 });
 msSlider.on('afterChange', () => {
     handleMsGlitch('off');
+
     calcButtonPosition(arrow);
 });
 
@@ -49,7 +57,6 @@ window.addEventListener('preloaderOff', function(evt) {
 
     }, 750);
     setTimeout(() => {
-
         document.querySelector('.main-screen__slider').classList.remove('glitched-title')
     }, 1250);
 });
@@ -166,6 +173,17 @@ function handleMsGlitch(action) {
             break;
     }
 };
+
+
+
+function switchGlitchBlockImg(block, src) {
+    let reversedImages = Array.from(block.querySelectorAll('.glitch__img')).reverse();
+    reversedImages.forEach((el, index) => {
+        setTimeout(() => {
+            el.style.cssText = src;
+        }, index * 500);
+    })
+}
 
 /**Main screen button moveTo second screen */
 document.querySelectorAll('.main-screen__but').forEach(el => {

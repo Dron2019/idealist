@@ -60,7 +60,7 @@ let scrollState = {
     delta: 0,
 };
 let scrollSlides = Array.from(document.querySelectorAll('.js-other-project-slide__img'))
-scrollSlides.forEach((slide, index) => {
+scrollSlides.forEach((slide, index, array) => {
     var tempScene = new ScrollMagic.Scene({
         duration: slide.getBoundingClientRect().height,
         triggerElement: slide,
@@ -72,18 +72,24 @@ scrollSlides.forEach((slide, index) => {
     // tl.fromTo(slide, { y: 35 }, { y: -35 });
 
     tempScene.setTween(tl);
+
     tempScene.on("enter", function(event) {
+        console.log(index);
 
         changeTextTypedEffectDebounced(document.querySelector('.js-other-project-wrapper__right .title'), slide.dataset.title);
         changeInnerHTMLDebounced(document.querySelector('.js-other-projects-counter .slider-counter-type2__current'), index + 1);
-        gsapScrollToElDebounced(slide.querySelector('.glitch'));
+        // if (controller.inSlide === true &&
+        //     index > 0 &&
+        //     index < array.length) gsapScrollToElDebounced(slide.querySelector('.glitch'));
         /**Отключение автоматического центрирования при быстром скролле */
         if (new Date().getTime() - window.lastSceneEntering > 1500) {
             // gsap.to(window, { duration: 1, scrollTo: slide.querySelector('.glitch'), autoKill: false });
-            console.log('ss');
+            // console.log('ss');
         };
-        window.lastSceneEntering = new Date().getTime()
-            /**Отключение автоматического центрирования при быстром скролле END */
+        window.lastSceneEntering = new Date().getTime();
+
+
+        /**Отключение автоматического центрирования при быстром скролле END */
     });
     tempScene.on('progress', (e) => {
         // gsap.to(fixedSlider.querySelector('.title'), { y: e.progress * -20 })
@@ -95,7 +101,24 @@ let scrollScene = new ScrollMagic.Scene({
     duration: scrollContainer.getBoundingClientRect().height,
     triggerElement: scrollContainer,
     triggerHook: 0
-}).setPin(fixedSlider);
+}).addIndicators().setPin(fixedSlider);
+
+scrollScene.on('progress', (evt) => {
+    if (evt.progress > 0.9) {
+        controller.inSlide = false;
+    } else {
+
+        controller.inSlide = true;
+    }
+})
+scrollScene.on('leave', () => {
+    console.log('LEAVED');
+    controller.inSlide = false;
+})
+scrollScene.on('enter', () => {
+    console.log('ENTERED');
+    controller.inSlide = true;
+})
 controller.addScene(scrollScene);
 
 

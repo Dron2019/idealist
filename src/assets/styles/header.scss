@@ -133,6 +133,13 @@
             display: none;
         }
     }
+    @include from(769px) {
+        &__link:hover,
+        &__languages li:hover,
+        &__menu-button:hover &__menu-button-text {
+            color: var(--orange);
+        }
+    }
     @include from(1680px) {
         padding-bottom: 0;
     }
