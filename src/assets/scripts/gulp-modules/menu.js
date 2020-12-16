@@ -65,13 +65,18 @@ function windowScrollHandler(action) {
 // document.querySelector("header").style.border = "1px solid yellow"
 // const SCREEN_WIDTH = window.screen.width;
 let header = document.querySelector('.header');
+header.currentTheme = '';
 let menuCall = document.querySelector(".js-menu-call");
 let topMenu = document.querySelector('.js-top-menu');
 let headerThemes = ['light', 'dark'];
 
 function switchTheme(elem, theme) {
     headerThemes.forEach(el => elem.classList.remove(el));
-    // elem.classList.add(theme);
+    elem.classList.add(theme);
+    elem.currentTheme = theme;
+    // console.log(elem);
+    // console.log('---------');
+    // console.log(elem.currentTheme);
 }
 
 function headerMenuButtonAnimate(event) {

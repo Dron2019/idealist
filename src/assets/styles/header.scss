@@ -189,6 +189,10 @@
             display: flex;
             align-items: center;
         }
+        &.light &__languages li {
+            box-shadow: none;
+            background-color: transparent;
+        }
         &__logo {
             width: 75px;
         }
@@ -210,6 +214,9 @@
             letter-spacing: 0.04em;
             margin-bottom: -0.5em;
             margin-left: -17px;
+        }
+        &.light &__mobile-ver-link {
+            color: var(--white);
         }
         &__mobile-ver-link:before {
             content: '';
