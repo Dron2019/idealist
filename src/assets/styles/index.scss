@@ -136,6 +136,11 @@
     .arrow.left-side {
         transform: rotate(0.5turn);
     }
+    @include to(1240px) {
+        &__slide {
+            padding: 0 calc(100vw / 12);
+        }
+    }
     @include to(768px) {
         &__slide {
             padding: 0;
@@ -1125,7 +1130,10 @@
     padding-right: var(--side-fields);
     background: var(--other-gray);
     .home-screen-description-block {
-        grid-area: 1/9/5/12;
+        // grid-area: 1/9/5/12;
+        grid-area: 1/8/5/12;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
     .video-play-button {
         grid-area: 2/4/5/4;
@@ -1314,9 +1322,14 @@
         top: 0;
         left: 0;
     }
-    @include to(950px) {
+    @include to(1240px) {
         &__title {
             font-size: 48px;
+        }
+    }
+    @include to(950px) {
+        &__title {
+            font-size: 36px;
         }
     }
     @include to(768px) {
