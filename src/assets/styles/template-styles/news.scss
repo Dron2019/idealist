@@ -18,6 +18,9 @@
             margin-right: 50px;
         }
     }
+    .custom-select__items-wrapper {
+        background-color: var(--gray);
+    }
     .news-wrapper {
         display: flex;
         flex-wrap: wrap;

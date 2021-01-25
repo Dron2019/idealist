@@ -22,8 +22,9 @@ html {
     --text-size: 14px;
     // font-weight: normal;
     font-weight: 500;
-    @include from(1720px) {
-        --text-size: 14px;
+    @include from(1680px) {
+        --text-size: 16px;
+        line-height: 1.71em;
     }
     @include to(768px) {
         font-size: 14px;
@@ -40,7 +41,8 @@ body {
     // position: relative;
     margin: 0;
     min-width: 320px;
-    line-height: 1.5em;
+    // line-height: 1.5em;
+    line-height: 1.75em;
     font-family: $default-font;
     overflow-x: hidden;
     font-size: var(--text-size);

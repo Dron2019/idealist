@@ -111,6 +111,10 @@
         &>*:not(:first-child) {
             margin-top: 25px;
         }
+        .text {
+            font-size: 1.25em;
+            color: var(--gray);
+        }
         &-number {
             color: var(--orange);
             margin-left: auto;

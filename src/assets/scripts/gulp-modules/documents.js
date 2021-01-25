@@ -203,4 +203,11 @@ var ssb = {
 
 window.onload = function() {
     if (document.documentElement.clientWidth > 575) ssb.scrollbar('docs-wrapper'); // scrollbar initialization
+    /**Скрытие кастомного скроллбара при отстутствии полосы прокрутки */
+    let elementy = document.querySelector('.parent');
+    if (elementy.scrollHeight >= elementy.clientHeight) {
+        document.querySelectorAll('[class*=ssb_').forEach(el => {
+            el.remove();
+        })
+    }
 }
