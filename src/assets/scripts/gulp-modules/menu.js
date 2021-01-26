@@ -189,7 +189,20 @@ function dqsA(selector) {
 
 
 /**Скрытие Хедера при скролле вниз */
-new Headroom(header, { offset: 500, }).init();
+let headroom = new Headroom(header, {
+    offset: 500,
+    onPin: function(e) {
+        console.log(headroom);
+        document.body.classList.add(headroom.classes.pinned);
+        document.body.classList.remove(headroom.classes.unpinned);
+    },
+    // callback when unpinned, `this` is headroom object
+    onUnpin: function(e) {
+        console.log(headroom);
+        document.body.classList.add(headroom.classes.unpinned);
+        document.body.classList.remove(headroom.classes.pinned);
+    },
+}).init();
 
 document.body.addEventListener('mousemove', (evt) => {
     if (evt.clientY > 350) return;
