@@ -15,6 +15,7 @@
     color: var(--black);
     transition: transform .3s ease-out;
     letter-spacing: 0.1em;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
     &.with-bg {
         background-color: white;
     }
@@ -22,12 +23,14 @@
         fill: var(--black);
     }
     &.light {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
         color: var(--white);
         .header__logo {
             fill: var(--white);
         }
     }
     &.dark {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
         color: var(--black);
         .header__logo {
             fill: var(--black);

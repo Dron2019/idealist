@@ -24,7 +24,8 @@ function changeTextTypedEffect(el, text) {
 function gsapScrollToEl(el) {
     gsap.to(window, { duration: 1, scrollTo: el, autoKill: false });
 }
-let changeTextTypedEffectDebounced = debounce(changeTextTypedEffect, 1000);
+let changeTextTime = document.documentElement.clientWidth < 576 ? 500 : 1000;
+let changeTextTypedEffectDebounced = debounce(changeTextTypedEffect, changeTextTime);
 let changeInnerHTMLDebounced = debounce(changeInnerHTML, 0);
 let gsapScrollToElDebounced = debounce(gsapScrollToEl, 1500);
 
@@ -133,7 +134,7 @@ if (document.documentElement.clientWidth < 576) {
 }
 scrollScene.on("enter", function(event) {
     // console.log(event);
-    scrollContainer.scrollIntoView();
+    // scrollContainer.scrollIntoView();
 });
 scrollScene.on("progress", function(event) {
     // console.log(event);

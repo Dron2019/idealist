@@ -106,8 +106,21 @@
     }
     @include to(575px) {
         --vert-padding: 40px;
+        .scrollmagic-pin-spacer {
+            width: 100vw !important;
+        }
+        .scrollmagic-pin-spacer &__right {
+            width: 100vw;
+            height: 100%;
+            top: 0% !important;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+            padding: calc(var(--header-height) + 40px) 10px 40px 10px;
+        }
         &__left {
             // @include size(8);
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
         }
         &__right .title {
             font-size: 24px;
