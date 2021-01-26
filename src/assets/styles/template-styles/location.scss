@@ -16,6 +16,30 @@
             padding: var(--side-fields);
         }
     }
+    @include from-to(576px, 768px) {
+        padding-top: var(--header-height);
+        .double-part-section {
+            flex-direction: column-reverse;
+            padding-left: 0;
+        }
+        .double-part-section>*:not(.location-sticker) {
+            width: 100%;
+            height: 50vh;
+        }
+        .double-part-section__img {
+            width: 100%;
+            min-height: 50vh;
+        }
+        .double-part-section__text {
+            display: flex;
+            justify-content: center;
+            padding-left: var(--side-fields);
+            padding-right: var(--side-fields);
+        }
+        .home-screen-description-block__title {
+            margin-top: 0;
+        }
+    }
     @include to(575px) {
         padding-top: var(--header-height);
         .double-part-section {

@@ -42,6 +42,34 @@
             padding-right: 0;
         }
     }
+    @include from-to(576px, 768px) {
+        .double-part-section {
+            padding-left: var(--side-fields);
+            margin-top: var(--header-height);
+        }
+        .double-part-section__img {
+            width: calc(100% + (var(--side-fields) * 2));
+            margin-left: calc(var(--side-fields) * -1);
+            margin-right: calc(var(--side-fields) * -1);
+            height: 50vh;
+        }
+        .double-part-section__text {
+            height: auto;
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .home-screen-description-block__text-wrap {
+            margin-top: 20px;
+        }
+        .facilities-slider__dots-row {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .facilities-slider__navigation-row {
+            margin-top: 20px;
+        }
+    }
     @include to(575px) {
         .double-part-section {
             padding-left: var(--side-fields);

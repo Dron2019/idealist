@@ -15,6 +15,12 @@ let gallerySlider = $(".js-gallery-slider").slick({
     arrows: false,
     slide: ".gallery-slide",
     lazyLoad: "ondemand",
+    responsive: [{
+        breakpoint: 576,
+        settings: {
+            arrows: true,
+        }
+    }, ]
 });
 
 gallerySlider.on("afterChange", (slick, config, currentSlide) => {

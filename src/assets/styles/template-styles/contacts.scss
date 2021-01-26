@@ -71,4 +71,7 @@
     svg {
         margin-right: 10px;
     }
+    @include to(575px) {
+        margin-right: 20px;
+    }
 }

@@ -146,5 +146,5 @@ var textBlockHeight = screen1.querySelector('.double-part-section__text').getBou
 
 if (document.documentElement.clientWidth < 576) {
 
-    screen1.querySelector('picture').style.height = (document.documentElement.clientHeight - textBlockHeight - headerHeight) + 'px';
+    // screen1.querySelector('picture').style.height = (document.documentElement.clientHeight - textBlockHeight - headerHeight) + 'px';
 }

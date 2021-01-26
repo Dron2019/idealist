@@ -36,8 +36,12 @@ let msSlider = $(".main-screen__slider").slick({
 
 msSlider.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
     handleMsGlitch('on');
-    // console.log(slick);
-    // console.log(nextSlide);
+    console.log(slick);
+    if (currentSlide === (slick.slideCount - 1) && nextSlide === 0) {
+        console.log('EDGE');
+        gsap.to(slick.$slider, { x: slick.slideWidth * -1, duration: slick.options.speed / 1000, clearProps: 'all' })
+    }
+    console.log(nextSlide);
     switchGlitchBlockImg(mainScreenImgShowBlock, slick.$slides[nextSlide].dataset.img)
 });
 msSlider.on('afterChange', () => {
@@ -152,6 +156,7 @@ let navigate = {
 
 function switchGallerySlide(side) {
     console.log(navigate[side]);
+    console.log(msSlider);
     $(".main-screen__slider").slick(navigate[side]);
     // return navigate.side;
 };

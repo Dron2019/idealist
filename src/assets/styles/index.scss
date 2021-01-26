@@ -979,7 +979,7 @@
         margin-left: auto;
         .scrolling-screen-slide {
             // height: calc(100vh - var(--header-height));
-            height: 100vh;
+            // height: 100vh;
             // border: 1px solid blue;
         }
     }
@@ -1083,6 +1083,8 @@
             width: calc(100% / 7 * 5);
             margin-top: -40px;
             padding-bottom: 40px;
+            width: 100%;
+            margin-left: 0 !important;
         }
     }
     @include to(575px) {
@@ -1162,12 +1164,23 @@
         padding-top: 85px;
         padding-bottom: 85px;
         .home-screen-description-block {
-            grid-area: 1/8/5/12;
+            // grid-area: 1/8/5/12;
+            grid-area: 1/8/5/13;
         }
         .video-play-button {
             min-height: 25vh;
             margin-bottom: 20px;
             width: 100%;
+            grid-area: 2/2/2/4;
+        }
+        .infra-block-park {
+            grid-area: 3/1/5/4;
+        }
+        .infra-block-lounge {
+            grid-area: 1/4/5/7;
+        }
+        .home-screen-description-block {
+            grid-area: 1/7/5/13;
         }
     }
     @include to(575px) {
